@@ -17,4 +17,7 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => 'true']);
 
+// User routes 
+Route::get('user-settings/{type?}', 'Account\SettingsController@index')->name('user.settings');
+
 Route::get('/home', 'HomeController@index')->name('home');
