@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Bck;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
