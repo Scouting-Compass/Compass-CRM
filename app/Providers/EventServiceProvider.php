@@ -1,6 +1,6 @@
 <?php
 
-namespace Bck\Providers;
+namespace ActivismeBe\Providers;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;

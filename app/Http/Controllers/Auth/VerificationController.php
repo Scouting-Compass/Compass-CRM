@@ -1,6 +1,6 @@
 <?php
 
-namespace Bck\Http\Controllers\Auth;
+namespace ActivismeBe\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;

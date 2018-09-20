@@ -1,6 +1,6 @@
 <?php
 
-namespace Bck\Http\Middleware;
+namespace ActivismeBe\Http\Middleware;
 
 use Illuminate\Cookie\Middleware\EncryptCookies as Middleware;
 

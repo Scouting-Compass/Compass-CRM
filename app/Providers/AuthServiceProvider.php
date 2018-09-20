@@ -1,6 +1,6 @@
 <?php
 
-namespace Bck\Providers;
+namespace ActivismeBe\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -13,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'Bck\Model' => 'Bck\Policies\ModelPolicy',
+        'ActivismeBe\Model' => 'ActivismeBe\Policies\ModelPolicy',
     ];
 
     /**

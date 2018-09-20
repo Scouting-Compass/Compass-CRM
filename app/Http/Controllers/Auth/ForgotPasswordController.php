@@ -1,8 +1,8 @@
 <?php
 
-namespace Bck\Http\Controllers\Auth;
+namespace ActivismeBe\Http\Controllers\Auth;
 
-use Bck\Http\Controllers\Controller;
+use ActivismeBe\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class ForgotPasswordController extends Controller

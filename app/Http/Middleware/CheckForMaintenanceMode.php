@@ -1,6 +1,6 @@
 <?php
 
-namespace Bck\Http\Middleware;
+namespace ActivismeBe\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode as Middleware;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Bck\Http\Middleware;
+namespace ActivismeBe\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;

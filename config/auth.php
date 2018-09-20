@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Bck\User::class,
+            'model' => ActivismeBe\User::class,
         ],
 
         // 'users' => [

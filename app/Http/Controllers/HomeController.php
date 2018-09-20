@@ -1,6 +1,6 @@
 <?php
 
-namespace Bck\Http\Controllers;
+namespace ActivismeBe\Http\Controllers;
 
 use Illuminate\Http\Request;
 
