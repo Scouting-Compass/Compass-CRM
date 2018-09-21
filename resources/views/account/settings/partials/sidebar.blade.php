@@ -1,4 +1,4 @@
-<div class="list-group tw-shadow mb-4">
+<div class="list-group mb-4">
     <a href="{{ route('user.settings') }}" class="list-group-item list-group-item-action">
         <i class="fe fe-user mr-1"></i> Information
     </a>
@@ -8,7 +8,7 @@
     </a>
 </div>
 
-<div class="list-group tw-shadow">
+<div class="list-group">
     <a href="#" class="list-group-item list-group-item-action list-group-item-danger">
         <i class="fe fe-x-circle mr-1"></i> Delete your account
     </a>
