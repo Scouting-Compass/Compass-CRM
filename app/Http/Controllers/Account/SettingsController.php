@@ -36,4 +36,14 @@ class SettingsController extends Controller
             default:         return view('account.settings.information');
         } 
     }
+
+    public function updateSecurity(): RedirectResponse 
+    {
+
+    }
+
+    public function updateInformation(): RedirectResponse 
+    {
+        
+    }
 }
