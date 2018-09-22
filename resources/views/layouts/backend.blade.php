@@ -34,7 +34,7 @@
                         <ul class="navbar-nav mr-auto">
                             @if ($authUser->hasRole('admin'))
                                 <li class="nav-item">
-                                    <a href="" class="nav-link">Users</a>
+                                    <a href="{{ route('users.index') }}" class="nav-link">Users</a>
                                 </li>
                             @endif
                         </ul>

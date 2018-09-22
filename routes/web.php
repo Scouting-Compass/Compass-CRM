@@ -15,9 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes(['verify' => 'true']);
+Auth::routes(['verify' => 'true', 'register' => false]);
 
-// User routes 
+// User management routes
+Route::get('users', 'Users\DashboardController@index')->name('users.index');
+
+// User settings routes 
 Route::get('user-settings/{type?}', 'Account\SettingsController@index')->name('user.settings');
 Route::patch('user-settings/info', 'Account\SettingsController@updateInformation')->name('user.settings.info'); 
 Route::patch('user-settings/security', 'Account\SettingsController@updateSecurity')->name('user.settings.security');

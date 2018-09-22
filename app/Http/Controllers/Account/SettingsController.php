@@ -16,7 +16,6 @@ use ActivismeBe\Http\Requests\Account\InformationValidator;
  */
 class SettingsController extends Controller
 {
-
     /**
      * The autentication guard. 
      * 
