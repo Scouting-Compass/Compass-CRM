@@ -14,8 +14,10 @@
             </div>
 
             <div class="col-md-9">
-                <form class="card card-body" action="" method="POST">
+                <form class="card card-body" action="{{ route('user.settings.info') }}" method="POST">
                     <h6 class="border-bottom border-gray pb-1 mb-3">Account information</h6>
+
+                    @include ('flash::message') {{-- Flash session view partial --}}
 
                     @csrf               {{-- Form field protection --}}
                     @method('PATCH')    {{-- HTTP method spoofing --}}
@@ -29,7 +31,7 @@
 
                     <div class="form-group">
                         <label for="inputEmail">Email address <span class="tw-text-red">*</label>
-                        <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email" @input('email')>
+                        <input type="email" class="form-control @error('email', 'is-invalid')" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email" @input('email')>
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
 

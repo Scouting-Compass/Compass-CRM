@@ -14,8 +14,10 @@
             </div>
 
             <div class="col-md-9">
-                <form class="card card-body" class="card card-body" action="">
+                <form class="card card-body" class="card card-body" method="POST" action="{{ route('user.settings.security') }}">
                     <h6 class="border-bottom border-gray pb-1 mb-3">Account security</h6>
+
+                    @include ('flash::message') {{-- Flash session view partial --}}
 
                     @csrf               {{-- Form field protection --}}
                     @method('PATCH')    {{-- HTTP method spoofing --}}
@@ -28,7 +30,7 @@
 
                     <div class="form-group">
                         <label for="passwordConfirmation">Repeat password <span class="tw-text-red">*</span></label>
-                        <input type="password" class="form-control" placeholder="Repeat password" @input('password_confirmation')>
+                        <input type="password" @input('password_confirmation') class="form-control" placeholder="Repeat password">
                     </div>
 
                     <hr class="mt-0 border-grey">
