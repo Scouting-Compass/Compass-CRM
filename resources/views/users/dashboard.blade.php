@@ -49,6 +49,18 @@
                         @forelse ($users as $user) {{-- Users loop --}}
                             <tr>
                                 <td><strong>#{{ $user->id }}</strong></td>
+                                <td>{{ $user->name }}</td>
+                                <td>
+                                    @if ($user->isBanned())
+                                        <span class="badge badge-danger">Deactivated</span>
+                                    @else {{-- User is not banned --}}
+                                        @if ($user->isOnline())
+                                            <span class="badge badge-success">Online</span>
+                                        @else {{-- The user is offline --}}
+                                            <span class="badge badge-danger">Offline</span>
+                                        @endif
+                                    @endif
+                                </td>
                             </tr>
                         @empty
                         @endforelse {{-- /// END users loop --}}

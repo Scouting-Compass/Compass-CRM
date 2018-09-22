@@ -31,7 +31,7 @@ class SettingsController extends Controller
      */
     public function __construct(Guard $auth) 
     {
-        $this->middleware(['auth']);
+        $this->middleware(['auth', 'verified', 'forbid-banned-user']);
         $this->auth = $auth;
     }
 

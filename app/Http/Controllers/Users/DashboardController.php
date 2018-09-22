@@ -29,7 +29,7 @@ class DashboardController extends Controller
      */
     public function __construct(User $users) 
     {
-        $this->middleware(['verified', 'auth', 'role:admin']);
+        $this->middleware(['verified', 'auth', 'role:admin', 'forbid-banned-user']);
         $this->users = $users;
     }
 
