@@ -17988,6 +17988,28 @@ table {
   * @import "utilities/skew-transforms";
   */
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background-color: #f1f5f9;
+}
+
+.no-underline {
+  text-decoration: none !important;
+}
+
 @media (min-width: 576px) {
   .sm\:tw-list-reset {
     list-style: none;
