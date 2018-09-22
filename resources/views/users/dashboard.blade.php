@@ -61,6 +61,22 @@
                                         @endif
                                     @endif
                                 </td>
+                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->created_at->diffForHumans() }}</td>
+                                
+                                <td> {{-- User options --}}
+                                    <span class="pull-right">
+                                        <a href="" class="text-secondary no-underline pr-1"><i class="fe fe-info"></i></a>
+
+                                        @if ($user->isNotBanned())
+                                            <a href="" class="text-secondary no-underline pr-1"><i class="fe fe-lock"></i></a>
+                                        @elseif ($user->isBanned()) {{-- User is deactivated inthe application --}}
+                                            <a href="" class="text-secondary no-underline pr-1"><i class="fe fe-unlock"></i></a>
+                                        @endif
+
+                                        <a href="" class="no-underline text-danger"><i class="fe fe-user-x"></i></a>
+                                    </span>
+                                </td> {{-- /// END user options --}}
                             </tr>
                         @empty
                         @endforelse {{-- /// END users loop --}}
