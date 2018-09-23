@@ -63,6 +63,10 @@ class LockController extends Controller
      */
     public function destroy(User $user): RedirectResponse
     {
+        $user->unban();
+
+        $this->flashSuccess("The login from {$user->name} is back active in the application");
+
         return redirect()->route('users.index');
     }
 }
