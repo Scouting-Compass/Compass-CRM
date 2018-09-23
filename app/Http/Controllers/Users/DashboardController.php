@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use ActivismeBe\Http\Controllers\Controller;
 use Illuminate\Contracts\View\View;
 use ActivismeBe\User;
+use Illuminate\Http\RedirectResponse;
+use Spatie\Permission\Models\Role;
 
 /**
  * Class DashboardController 
@@ -50,5 +52,32 @@ class DashboardController extends Controller
         }
 
         return view('users.dashboard', ['users' => $users->simplePaginate(15)]);
+    }
+
+    /**
+     * Create view for a new user in the application. 
+     *
+     * @return View
+     */
+    public function create(): View 
+    {
+        return view('users.create');
+    }
+
+    /**
+     * Delete an user in the application. 
+     * 
+     * @param  Request  $request The request information collection bag.
+     * @param  User     $user    The resource entity from the storage. 
+     * @return View|RedirectResponse
+     */
+    public function destroy(Request $request, User $user)
+    {
+        if ($request->method()) {
+            return view('users.delete', compact('user'));
+        }
+
+        // Method is not indentified as GET request DELETE
+        // TODO: Implment use destory logic.
     }
 }

@@ -7,7 +7,7 @@
             <div class="page-subtitle">Management panel</div>
 
             <div class="page-options d-flex">
-                <a href="" class="btn tw-rounded btn-primary mr-2">
+                <a href="{{ route('users.create') }}" class="btn tw-rounded btn-primary mr-2">
                     <i class="fe fe-user-plus"></i>
                 </a>
 
@@ -69,12 +69,14 @@
                                         <a href="" class="text-secondary no-underline pr-1"><i class="fe fe-info"></i></a>
 
                                         @if ($user->isNotBanned())
-                                            <a href="" class="text-secondary no-underline pr-1"><i class="fe fe-lock"></i></a>
+                                            <a href="{{ route('users.lock', $user) }}" class="text-secondary no-underline pr-1">
+                                                <i class="fe fe-lock"></i>
+                                            </a>
                                         @elseif ($user->isBanned()) {{-- User is deactivated inthe application --}}
                                             <a href="" class="text-secondary no-underline pr-1"><i class="fe fe-unlock"></i></a>
                                         @endif
 
-                                        <a href="" class="no-underline text-danger"><i class="fe fe-user-x"></i></a>
+                                        <a href="{{ route('users.delete', $user) }}" class="no-underline text-danger"><i class="fe fe-user-x"></i></a>
                                     </span>
                                 </td> {{-- /// END user options --}}
                             </tr>

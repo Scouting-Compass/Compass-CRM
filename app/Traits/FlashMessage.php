@@ -35,4 +35,16 @@ trait FlashMessage
     {
         return $this->flashMessage("<strong>{$title}</strong>", $message)->success();
     }
+
+    /**
+     * Flash an error message. 
+     * 
+     * @param  string $message  The actual flash message.  
+     * @param  string $title    The title for the flash message default to "Danger!"
+     * @return FlashNotifier
+     */
+    public function flashDanger(string $message, string $title = 'Danger!'): FlashNotifier
+    {
+        return $this->flashMessage("<strong>{$title}</strong>", $message)->error();
+    }
 }

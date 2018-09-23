@@ -36,6 +36,10 @@
                                 <li class="nav-item">
                                     <a href="{{ route('users.index') }}" class="nav-link">Users</a>
                                 </li>
+
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">Calendar</a>
+                                </li>
                             @endif
                         </ul>
 

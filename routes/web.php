@@ -19,6 +19,12 @@ Auth::routes(['verify' => 'true', 'register' => false]);
 
 // User management routes
 Route::get('users', 'Users\DashboardController@index')->name('users.index');
+Route::get('users/create', 'Users\DashboardController@create')->name('users.create');
+Route::match(['get', 'delete'], '/users/delete/{user}', 'Users\DashboardController@destroy')->name('users.delete');
+
+// User state routes
+Route::get('/users/lock/{user}', 'Users\LockController@create')->name('users.lock');
+Route::post('/users/lock/{user}', 'Users\LockController@store')->name('users.lock.create');
 
 // User settings routes 
 Route::get('user-settings/{type?}', 'Account\SettingsController@index')->name('user.settings');
