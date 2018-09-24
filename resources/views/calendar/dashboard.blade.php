@@ -35,7 +35,7 @@
                     <tbody>
                         @forelse ($leases as $lease) {{-- Loop through the leases --}}
                             <tr>
-                                <td>{{ $lease->tenant->name }}</td>
+                                <td><a href="">{{ $lease->tenant->name }}</a></td>
                                 <td>{{ $lease->tenant->email }}</td>
                                 <td>{{ $lease->start }} - {{ $lease->end }}</td>
                             </tr>

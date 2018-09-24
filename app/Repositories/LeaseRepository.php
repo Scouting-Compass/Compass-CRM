@@ -22,9 +22,10 @@ class LeaseRepository extends Model
      */
     public function store(LeaseValidator $input): Lease
     {
-        if ($lease  = $this->writeLeaseToStorage($input->all())) {
-            $tenant = Tanant::findOrCreate(['email' => $input->email], $input->all());
-            $lease->tenant()->associate($tenant)->save();
+        if ($lease  = $this->create($input->all())) {
+            $tenant = Tenant::firstOrCreate(['email' => $input->email], $input->all());
+            $tenant->creator()->associate($input->user())->save();
+            $tenant->leases()->save($lease);
         }
 
         return $lease;

@@ -32,32 +32,10 @@ class LeaseValidator extends FormRequest
      */
     public function rules(): array
     {
-        return array_merge($this->basicRules(), $this->methodSpecificRules());
-    }
-
-    /**
-     * The basic validation rules for the ongoing request.
-     * 
-     * @return array
-     */
-    private function basicRules(): array 
-    {
         return [
             'firstname' => 'required|string|max:120',
             'lastname'  => 'required|string|max:120',
+            'email' => 'required|string|email|max:255'
         ];
-    }
-
-    /**
-     * The HTTP method specific validation rules for the ongoing request. 
-     * 
-     * @return array
-     */
-    private function methodSpecificRules(): array 
-    {
-        switch ($this->method()) {
-            case 'POST':    return ['email' => 'required|string|email|max:255|unique:tenants'];
-            default:        return [];
-        } 
     }
 }

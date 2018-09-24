@@ -61,11 +61,11 @@
 
                     <div class="form-row">
                         <div class="form-group col-md-9">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" placeholder="format: d/m/Y">
                         </div>
                 
                         <div class="form-group col-md-3">
-                            <select name=""></select>
+                            <input type="text" placeholder="HH:mm" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -75,11 +75,11 @@
     
                     <div class="form-row">
                         <div class="form-group col-md-9">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" placeholder="format: d/m/Y">
                         </div>
                     
                         <div class="form-group col-md-3">
-                            <input type="text" class="form-control">
+                            <input type="text" placeholder="HH:mm" class="form-control">
                         </div>
                     </div>
                 </div>

@@ -106,5 +106,7 @@
                 </div>
             </footer>
         </div>
+
+        @stack('scripts') {{-- Specific page JavaScript stack --}}
     </body>
 </html>
