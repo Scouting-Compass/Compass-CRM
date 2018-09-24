@@ -27,6 +27,9 @@ Route::get('/users/lock/{user}', 'Users\LockController@create')->name('users.loc
 Route::get('/users/unlock/{user}', 'Users\LockController@destroy')->name('users.unlock');
 Route::post('/users/lock/{user}', 'Users\LockController@store')->name('users.lock.create');
 
+// Calendar routes
+Route::get('/calendar', 'Calendar\DashboardController@index')->name('calendar.index');
+
 // User settings routes 
 Route::get('user-settings/{type?}', 'Account\SettingsController@index')->name('user.settings');
 Route::patch('user-settings/info', 'Account\SettingsController@updateInformation')->name('user.settings.info'); 

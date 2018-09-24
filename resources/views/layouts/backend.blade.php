@@ -38,7 +38,11 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="" class="nav-link">Calendar</a>
+                                    <a href="" class="nav-link">Tenants</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="{{ route('calendar.index') }}" class="nav-link">Calendar</a>
                                 </li>
                             @endif
                         </ul>
