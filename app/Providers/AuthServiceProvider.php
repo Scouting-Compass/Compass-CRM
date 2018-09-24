@@ -5,8 +5,9 @@ namespace ActivismeBe\Providers;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use ActivismeBe\User;
+use ActivismeBe\Policies\UserPolicy;
 use ActivismeBe\Models\Lease;
-use ActivismeBe\Policies\{UserPolicy, LeasePolicy};
+use ActivismeBe\Policies\LeasePolicy;
 
 /**
  * Class AuthServiceProvider 
@@ -21,7 +22,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        User::class => UserPolicy::class,
+        User::class => UserPolicy::class, 
         Lease::class => LeasePolicy::class,
     ];
 
@@ -33,7 +34,5 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
-        //
     }
 }

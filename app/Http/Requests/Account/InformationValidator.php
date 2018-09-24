@@ -42,7 +42,7 @@ class InformationValidator extends FormRequest
     }
 
     /**
-     * The method specific validation rules for the ongoing request.
+     * The HTTP method specific validation rules for the ongoing request.
      * 
      * @return array 
      */

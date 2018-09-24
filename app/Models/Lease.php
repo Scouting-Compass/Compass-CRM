@@ -2,9 +2,14 @@
 
 namespace ActivismeBe\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use ActivismeBe\Repositories\LeaseRepository;
 
-class Lease extends Model
+/**
+ * Class Lease
+ * 
+ * @package ActivismeBe\Lease
+ */
+class Lease extends LeaseRepository
 {
     //
 }

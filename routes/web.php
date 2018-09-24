@@ -30,6 +30,10 @@ Route::post('/users/lock/{user}', 'Users\LockController@store')->name('users.loc
 // Calendar routes
 Route::get('/calendar', 'Calendar\DashboardController@index')->name('calendar.index');
 
+// Lease routes
+Route::get('/lease/create', 'Calendar\DashboardController@create')->name('lease.create');
+Route::post('/lease/create', 'Calendar\DashboardController@store')->name('lease.store');
+
 // User settings routes 
 Route::get('user-settings/{type?}', 'Account\SettingsController@index')->name('user.settings');
 Route::patch('user-settings/info', 'Account\SettingsController@updateInformation')->name('user.settings.info'); 

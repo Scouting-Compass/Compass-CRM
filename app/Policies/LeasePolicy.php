@@ -6,59 +6,70 @@ use ActivismeBe\User;
 use ActivismeBe\Models\Lease;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
+/**
+ * Class LeasePolicy 
+ * 
+ * @package ActivismeBe\Policies
+ */
 class LeasePolicy
 {
     use HandlesAuthorization;
 
-    public function index(User $user)
+    /**
+     * Determine whether the user can view the lease index page. 
+     * 
+     * @param  User $user The resource entity from the authenticated user.
+     * @return bool
+     */
+    public function viewDashboard(User $user): bool
     {
-        return $user->hasRole('crap');
+        return $user->hasAnyRole(['admin', 'leader']);
     }
 
     /**
      * Determine whether the user can view the lease.
      *
-     * @param  \ActivismeBe\User  $user
-     * @param  \ActivismeBe\ModelsLease  $lease
-     * @return mixed
+     * @param  User   $user  The resource entity from the authenticated user. 
+     * @param  Lease  $lease The resource entity form the lease.  
+     * @return bool
      */
-    public function view(User $user, Lease $lease)
+    public function view(User $user, Lease $lease): bool
     {
-        return true;
+        return $user->hasAnyRole(['admin', 'leader']);
     }
 
     /**
-     * Determine whether the user can create models leases.
+     * Determine whether the user can create leases.
      *
-     * @param  \ActivismeBe\User  $user
-     * @return mixed
+     * @param  User  $user The resource entity from the authenticated user.
+     * @return bool
      */
-    public function create(User $user)
+    public function create(User $user): bool
     {
-        //
+        return $user->hasAnyRole(['admin', 'leader']);
     }
 
     /**
-     * Determine whether the user can update the models lease.
+     * Determine whether the user can update the lease.
      *
-     * @param  \ActivismeBe\User  $user
-     * @param  \ActivismeBe\ModelsLease  $modelsLease
-     * @return mixed
+     * @param  User   $user  The resource entity from the authenticated user. 
+     * @param  Lease  $lease The resource entity form the lease. 
+     * @return bool
      */
-    public function update(User $user, ModelsLease $modelsLease)
+    public function update(User $user, Lease $modelsLease): bool
     {
-        //
+        return $user->hasAnyRole(['admin', 'leader']);
     }
 
     /**
-     * Determine whether the user can delete the models lease.
+     * Determine whether the user can delete the lease.
      *
-     * @param  \ActivismeBe\User  $user
-     * @param  \ActivismeBe\ModelsLease  $modelsLease
+     * @param  User   $user  The resource entity from the authenticated user. 
+     * @param  Lease  $lease The resource entity form the lease. 
      * @return mixed
      */
-    public function delete(User $user, ModelsLease $modelsLease)
+    public function delete(User $user, Lease $lease): bool
     {
-        //
+        return $user->hasAnyRole(['admin', 'leader']);
     }
 }

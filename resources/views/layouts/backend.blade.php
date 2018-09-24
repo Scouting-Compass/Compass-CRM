@@ -60,6 +60,12 @@
                                     @endif
                                 </li>
                             @else {{-- User is authenticated --}}
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                        <i class="fe fe-bell"></i>
+                                    </a>
+                                </li>
+
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ $authUser->name }} <span class="caret"></span>

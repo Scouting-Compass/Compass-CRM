@@ -17,8 +17,8 @@ class UserPolicy
     /**
      * Determine whether the user is not the samen as the authenticated user.
      *
-     * @param  User  $authUser
-     * @param  User  $user
+     * @param  User  $authUser  The resource entity from the authenticated user.
+     * @param  User  $user      The resource entity from the given user. 
      * @return bool
      */
     public function notAuthUser(User $authUser, User $user): bool
