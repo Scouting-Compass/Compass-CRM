@@ -36,25 +36,6 @@
                                 <li class="nav-item">
                                     <a href="{{ route('users.index') }}" class="nav-link">Users</a>
                                 </li>
-
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">Tenants</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="{{ route('calendar.index') }}" class="nav-link">Calendar</a>
-                                </li>
-
-                                <li class="nav-item dropdown">
-                                    <a id="navbarPremises" href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        Premises <span class="caret"></span>
-                                    </a>
-
-                                    <div class="dropdown-menu" aria-labelledby="navbarPremises">
-                                        <a class="dropdown-item" href="">Overview</a>
-                                        <a class="dropdown-item" href="">Working points</a>
-                                    </div>
-                                </li>
                             @endif
                         </ul>
 
