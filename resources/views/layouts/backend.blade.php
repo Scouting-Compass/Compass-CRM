@@ -73,7 +73,7 @@
                             @else {{-- User is authenticated --}}
                                 <li class="nav-item">
                                     <a href="" class="nav-link">
-                                        <i class="fe fe-bell"></i>
+                                        <i class="fe fe-bell"></i> <span style="margin-top: -.25rem;" class="badge align-middle badge-pill badge-danger">0</span>
                                     </a>
                                 </li>
 
