@@ -89,6 +89,5 @@ class DashboardController extends Controller
         }
 
         // Method is not indentified as GET request DELETE
-        // TODO: Implment use destory logic.
     }
 }
