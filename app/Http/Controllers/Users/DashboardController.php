@@ -65,6 +65,17 @@ class DashboardController extends Controller
     }
 
     /**
+     * Get the create page for a new user in the application. 
+     * 
+     * @param  User $user The resource entity from the user.
+     * @return View
+     */
+    public function show(User $user): View 
+    {
+        return view('users.show', compact('user'));
+    }
+
+    /**
      * Delete an user in the application. 
      * 
      * @param  Request  $request The request information collection bag.

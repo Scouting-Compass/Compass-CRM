@@ -68,7 +68,7 @@
                                 
                                 <td> {{-- User options --}}
                                     <span class="pull-right">
-                                        <a href="" class="text-secondary no-underline pr-1"><i class="fe fe-info"></i></a>
+                                        <a href="{{ route('users.show', $user) }}" class="text-secondary no-underline pr-1"><i class="fe fe-info"></i></a>
 
                                         @if ($user->isNotBanned())
                                             <a href="{{ route('users.lock', $user) }}" class="text-secondary no-underline pr-1">
