@@ -22,7 +22,7 @@ Route::get('users', 'Users\DashboardController@index')->name('users.index');
 Route::get('users/create', 'Users\DashboardController@create')->name('users.create');
 Route::match(['get', 'delete'], '/users/delete/{user}', 'Users\DashboardController@destroy')->name('users.delete');
 Route::get('/users/show{user}', 'Users\DashboardController@show')->name('users.show');
-
+Route::post('/users/store', 'Users\DashboardController@store')->name('users.store');
 
 // User state routes
 Route::get('/users/lock/{user}', 'Users\LockController@create')->name('users.lock');

@@ -8,6 +8,7 @@ use Illuminate\Contracts\View\View;
 use ActivismeBe\User;
 use Illuminate\Http\RedirectResponse;
 use Spatie\Permission\Models\Role;
+use ActivismeBe\Http\Requests\Account\InformationValidator;
 
 /**
  * Class DashboardController 
@@ -57,11 +58,13 @@ class DashboardController extends Controller
     /**
      * Create view for a new user in the application. 
      *
+     * @param  Role $role The resource model for the ACL roles storage. 
      * @return View
      */
-    public function create(): View 
+    public function create(Role $role): View 
     {
-        return view('users.create');
+        $roles = $role->pluck('name', 'name'); // Duplicate attribute because the value in the form is not an integer.
+        return view('users.create', compact('roles'));
     }
 
     /**
@@ -73,6 +76,28 @@ class DashboardController extends Controller
     public function show(User $user): View 
     {
         return view('users.show', compact('user'));
+    }
+
+    /**
+     * Method for creating a new user in the application. 
+     * 
+     * @param  InformationValidator $input  The form request class that handles all the validation logic. 
+     * @param  User                 $user   The resource model from the storage. 
+     * @return RedirectResponse
+     */
+    public function store(InformationValidator $input, User $user): RedirectResponse
+    {
+        $input->merge(['password' => str_random(16)]); // Bind the generated password to the input.
+
+        if ($user = $user->create($input->all())->assignRole($input->role)) {
+            if (! is_null($input->email_verified_at)) { // User needs to verify his/her user account
+                $user->update(['email_verified_at' => now()]);
+            }    
+
+            $this->flashSuccess("There is create a login for {$user->name}.")->important();
+        }    
+
+        return redirect()->route('users.create');
     }
 
     /**
