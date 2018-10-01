@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "530ca91dfa8c885ead5914204f96736a",
-    "content-hash": "66f99c1242a38958f26dee6941bbdd12",
+    "hash": "a211c6b14a0427e58ad1a3b04b8fb1de",
+    "content-hash": "bf678d90a95689bc3da8698820d1d3bd",
     "packages": [
         {
             "name": "activismebe/laravel-form-helpers",
@@ -1068,6 +1068,59 @@
                 "psr-3"
             ],
             "time": "2017-06-19 01:22:40"
+        },
+        {
+            "name": "mpociot/reanimate",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mpociot/reanimate.git",
+                "reference": "deec27a023f19e86f37454ed50e3faf11f731e22"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mpociot/reanimate/zipball/deec27a023f19e86f37454ed50e3faf11f731e22",
+                "reference": "deec27a023f19e86f37454ed50e3faf11f731e22",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "5.*",
+                "illuminate/events": "5.*",
+                "illuminate/http": "5.*",
+                "illuminate/routing": "5.*",
+                "illuminate/support": "5.*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Mpociot\\Reanimate": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marcel Pociot",
+                    "email": "m.pociot@gmail.com"
+                }
+            ],
+            "description": "Undo Laravel soft deletes",
+            "homepage": "http://github.com/mpociot/reanimate",
+            "keywords": [
+                "laravel",
+                "model",
+                "restore",
+                "softdelete",
+                "undo"
+            ],
+            "time": "2015-03-18 22:45:13"
         },
         {
             "name": "nesbot/carbon",

@@ -33,7 +33,7 @@ trait FlashMessage
      */
     public function flashSuccess(string $message, string $title = 'Success!'): FlashNotifier 
     {
-        return $this->flashMessage("<strong>{$title}</strong>", $message)->success();
+        return $this->flashMessage($title, $message)->success();
     }
 
     /**
@@ -45,6 +45,6 @@ trait FlashMessage
      */
     public function flashDanger(string $message, string $title = 'Danger!'): FlashNotifier
     {
-        return $this->flashMessage("<strong>{$title}</strong>", $message)->error();
+        return $this->flashMessage($title, $message)->error();
     }
 }

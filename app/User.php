@@ -4,15 +4,15 @@ namespace ActivismeBe;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
 use ActivismeBe\Scopes\UserScopes;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Cog\Contracts\Ban\Bannable as BannableContract;
 use Cog\Laravel\Ban\Traits\Bannable;
 use Illuminate\Support\Facades\Cache;
+use ActivismeBe\Repositories\UserRepository;
 
-class User extends Authenticatable implements MustVerifyEmail, BannableContract
+class User extends UserRepository implements MustVerifyEmail, BannableContract
 {
     use Notifiable, HasRoles, UserScopes, SoftDeletes, Bannable;
 

@@ -9,6 +9,7 @@ use ActivismeBe\User;
 use Illuminate\Http\RedirectResponse;
 use Spatie\Permission\Models\Role;
 use ActivismeBe\Http\Requests\Account\InformationValidator;
+use Mpociot\Reanimate\ReanimateModels;
 
 /**
  * Class DashboardController 
@@ -17,6 +18,8 @@ use ActivismeBe\Http\Requests\Account\InformationValidator;
  */
 class DashboardController extends Controller
 {
+    use ReanimateModels; 
+
     /**
      * Holds the users model
      *
@@ -103,16 +106,37 @@ class DashboardController extends Controller
     /**
      * Delete an user in the application. 
      * 
+     * @todo Implement authorization gate.
+     * 
      * @param  Request  $request The request information collection bag.
      * @param  User     $user    The resource entity from the storage. 
      * @return View|RedirectResponse
      */
     public function destroy(Request $request, User $user)
     {
-        if ($request->method()) {
+        if ($request->method() === 'GET') {
             return view('users.delete', compact('user'));
         }
 
         // Method is not indentified as GET request DELETE
+        $this->validate($request, ['confirmation' => 'required']); // Confirm that the confirmation field is filled in.
+
+        $user->processDeleteRequest($request, $user);
+        return redirect()->route('users.index');
+    }
+
+    /**
+     * Undo the delete for the user in the application.
+     *
+     * @todo Implement authorization gate. 
+     * @todo Register route
+     * 
+     * @param  int $userIdentifier The unique identitifer from the user (storage: primary key)
+     * @return RedirectResponse
+     */
+    public function undoDeleteRoute(int $userIdentifier): RedirectResponse 
+    {
+        $this->flashInfo('The login has been restored');
+        return $this->restoreModel($user, new User(), 'users.index');
     }
 }
