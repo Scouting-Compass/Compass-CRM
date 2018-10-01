@@ -127,8 +127,6 @@ class DashboardController extends Controller
 
     /**
      * Undo the delete for the user in the application.
-     *
-     * @todo Register route
      * 
      * @param  int $userIdentifier The unique identitifer from the user (storage: primary key)
      * @return RedirectResponse
