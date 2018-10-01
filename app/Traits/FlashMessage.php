@@ -28,7 +28,7 @@ trait FlashMessage
      * Flash an success message. 
      * 
      * @param  string $message  The actual flash message. 
-     * @param  string $title    The title for the flash message default to "Success!"
+     * @param  string $title    The title for the flash message defaults to "Success!"
      * @return FlashNotifier
      */
     public function flashSuccess(string $message, string $title = 'Success!'): FlashNotifier 
@@ -37,14 +37,38 @@ trait FlashMessage
     }
 
     /**
-     * Flash an error message. 
-     * 
-     * @param  string $message  The actual flash message.  
-     * @param  string $title    The title for the flash message default to "Danger!"
+     * Flash an error message.
+     *
+     * @param  string $message  The actual flash message.
+     * @param  string $title    The title for the flash message defaults to "Danger!"
      * @return FlashNotifier
      */
     public function flashDanger(string $message, string $title = 'Danger!'): FlashNotifier
     {
         return $this->flashMessage($title, $message)->error();
+    }
+
+    /**
+     * Flash an warning message.
+     *
+     * @param  string $message  The actual flash message.
+     * @param  string $title    The title for the flash message defaults to "Warning!"
+     * @return FlashNotifier
+     */
+    public function flashWarning(string $message, string $title = 'Warning!'): FlashNotifier
+    {
+        return $this->flashMessage($title, $message)->warning();
+    }
+
+    /**
+     * Flash an information message.
+     *
+     * @param  string $message  The actual flash message.
+     * @param  string $title    The title for the flash message defaults to "Info!"
+     * @return FlashNotifier
+     */
+    public function flashInfo(string $message, string $title = 'Info!'): FlashNotifier
+    {
+        return $this->flashMessage($title, $message)->warning();
     }
 }

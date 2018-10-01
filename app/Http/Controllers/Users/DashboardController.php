@@ -36,6 +36,8 @@ class DashboardController extends Controller
     public function __construct(User $users) 
     {
         $this->middleware(['verified', 'auth', 'role:admin', 'forbid-banned-user']);
+        $this->middleware(['can:not-auth-user,user'])->only(['undoDeleteRoute', 'destroy']);
+
         $this->users = $users;
     }
 
@@ -45,7 +47,7 @@ class DashboardController extends Controller
      * @param  Request $request The request information bag for filtering users. 
      * @return View
      */
-    public function index(Request $request, User $users): View
+    public function index(Request $request): View
     {
         switch ($request->get('filter')) {
             case 'deactivated': $users = $this->users->deactivatedUsers(); break; 
@@ -104,9 +106,7 @@ class DashboardController extends Controller
     }
 
     /**
-     * Delete an user in the application. 
-     * 
-     * @todo Implement authorization gate.
+     * Delete an user in the application.
      * 
      * @param  Request  $request The request information collection bag.
      * @param  User     $user    The resource entity from the storage. 
@@ -128,7 +128,6 @@ class DashboardController extends Controller
     /**
      * Undo the delete for the user in the application.
      *
-     * @todo Implement authorization gate. 
      * @todo Register route
      * 
      * @param  int $userIdentifier The unique identitifer from the user (storage: primary key)
@@ -137,6 +136,6 @@ class DashboardController extends Controller
     public function undoDeleteRoute(int $userIdentifier): RedirectResponse 
     {
         $this->flashInfo('The login has been restored');
-        return $this->restoreModel($user, new User(), 'users.index');
+        return $this->restoreModel($userIdentifier, new User(), 'users.index');
     }
 }

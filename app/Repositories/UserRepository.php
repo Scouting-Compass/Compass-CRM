@@ -2,6 +2,7 @@
 
 namespace ActivismeBe\Repositories; 
 
+use ActivismeBe\Traits\FlashMessage;
 use ActivismeBe\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -14,11 +15,15 @@ use Illuminate\Http\Request;
  */
 class UserRepository extends Authenticatable
 {
+    use FlashMessage;
+
     /**
-     * Function for processing delete request from users. 
-     * 
-     * @param  Request $request The request information collection bag. 
-     * @param  User    $user    The resource entity from the given user. 
+     * Function for processing delete request from users.
+     *
+     * @throws \Exception instance of ModelNotFoundException when the user is not found.
+     *
+     * @param  Request $request The request information collection bag.
+     * @param  User $user The resource entity from the given user.
      * @return void
      */
     public function processDeleteRequest(Request $request, User $user): void
