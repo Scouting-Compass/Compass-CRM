@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home.front');
 
 Auth::routes(['verify' => 'true', 'register' => false]);
 

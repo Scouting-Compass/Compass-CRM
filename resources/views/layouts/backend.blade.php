@@ -64,6 +64,7 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('home.front') }}"><i class="fe fe-home mr-1 tw-text-grey-darker"></i> Home</a>
                                         <a class="dropdown-item" href="{{ route('user.settings') }}"><i class="fe fe-sliders mr-1 tw-text-grey-darker"></i> Settings</a>
                                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                             <i class="fe fe-power mr-1 tw-text-red"></i> {{ __('Logout') }}
