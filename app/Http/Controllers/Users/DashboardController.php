@@ -36,7 +36,7 @@ class DashboardController extends Controller
     public function __construct(User $users) 
     {
         $this->middleware(['verified', 'auth', 'role:admin', 'forbid-banned-user']);
-        $this->middleware(['can:not-auth-user,user'])->only(['undoDeleteRoute', 'destroy']);
+        $this->middleware(['can:not-auth-user,trashed_user'])->only(['undoDeleteRoute', 'destroy']);
 
         $this->users = $users;
     }
@@ -128,12 +128,12 @@ class DashboardController extends Controller
     /**
      * Undo the delete for the user in the application.
      * 
-     * @param  int $userIdentifier The unique identitifer from the user (storage: primary key)
+     * @param  User $user The resource entity from the user.
      * @return RedirectResponse
      */
-    public function undoDeleteRoute(int $userIdentifier): RedirectResponse 
+    public function undoDeleteRoute(User $user): RedirectResponse
     {
         $this->flashInfo('The login has been restored');
-        return $this->restoreModel($userIdentifier, new User(), 'users.index');
+        return $this->restoreModel($user->id, new User(), 'users.index');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace ActivismeBe\Providers;
 
+use ActivismeBe\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -23,9 +24,11 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-
         parent::boot();
+
+        Route::bind('trashed_user', function ($id) {
+            return User::onlyTrashed()->findOrFail($id);
+        });
     }
 
     /**

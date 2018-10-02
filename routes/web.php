@@ -28,7 +28,7 @@ Route::post('/users/store', 'Users\DashboardController@store')->name('users.stor
 Route::get('/users/lock/{user}', 'Users\LockController@create')->name('users.lock');
 Route::get('/users/unlock/{user}', 'Users\LockController@destroy')->name('users.unlock');
 Route::post('/users/lock/{user}', 'Users\LockController@store')->name('users.lock.create');
-Route::get('/users/delete/undo/{user}', 'users\DashboardController@undoDeleteRoute')->name('users.delete.undo');
+Route::get('/users/delete/undo/{trashed_user}', 'users\DashboardController@undoDeleteRoute')->name('users.delete.undo');
 
 // User settings routes 
 Route::get('user-settings/{type?}', 'Account\SettingsController@index')->name('user.settings');
