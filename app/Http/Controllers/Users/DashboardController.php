@@ -86,6 +86,8 @@ class DashboardController extends Controller
     /**
      * Method for creating a new user in the application. 
      * 
+     * @see \ActivismeBe\Observers\UserObserver::created() For the verified field and notification
+     * 
      * @param  InformationValidator $input  The form request class that handles all the validation logic. 
      * @param  User                 $user   The resource model from the storage. 
      * @return RedirectResponse
@@ -95,10 +97,6 @@ class DashboardController extends Controller
         $input->merge(['password' => str_random(16)]); // Bind the generated password to the input.
 
         if ($user = $user->create($input->all())->assignRole($input->role)) {
-            if (! is_null($input->email_verified_at)) { // User needs to verify his/her user account
-                $user->update(['email_verified_at' => now()]);
-            }    
-
             $this->flashSuccess("There is create a login for {$user->name}.")->important();
         }    
 
@@ -107,7 +105,9 @@ class DashboardController extends Controller
 
     /**
      * Delete an user in the application.
-     * 
+     *
+     * @throws \Exception instance of ModelNotFoundException when nu user is found.
+     *
      * @param  Request  $request The request information collection bag.
      * @param  User     $user    The resource entity from the storage. 
      * @return View|RedirectResponse
@@ -118,7 +118,7 @@ class DashboardController extends Controller
             return view('users.delete', compact('user'));
         }
 
-        // Method is not indentified as GET request DELETE
+        // Method is not identified as GET request DELETE
         $this->validate($request, ['confirmation' => 'required']); // Confirm that the confirmation field is filled in.
 
         $user->processDeleteRequest($request, $user);
