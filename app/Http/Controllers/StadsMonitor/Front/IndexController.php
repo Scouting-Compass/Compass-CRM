@@ -24,8 +24,6 @@ class IndexController extends Controller
      */
     public function index(City $cities): View
     {
-        return view('city-monitor.front.index', [
-           'cities' => $cities->simplePaginate()
-        ]);
+        return view('city-monitor.front.index', ['cities' => $cities->simplePaginate()]);
     }
 }
