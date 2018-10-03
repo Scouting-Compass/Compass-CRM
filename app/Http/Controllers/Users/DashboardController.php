@@ -36,7 +36,8 @@ class DashboardController extends Controller
     public function __construct(User $users) 
     {
         $this->middleware(['verified', 'auth', 'role:admin', 'forbid-banned-user']);
-        $this->middleware(['can:not-auth-user,trashed_user'])->only(['undoDeleteRoute', 'destroy']);
+        $this->middleware(['can:not-auth-user,user'])->only(['destroy']);
+        $this->middleware(['can:not-auth-user,trashed_user'])->only(['undoDeleteRoute']);
 
         $this->users = $users;
     }
