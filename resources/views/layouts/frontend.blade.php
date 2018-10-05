@@ -36,6 +36,15 @@
                                 <a href="{{ route('city-monitor.front.index') }}" class="nav-link">Stadsmonitor</a>
                             </li>
                             <li class="nav-item">
+                                <a href="" class="nav-link">Petition</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link">News</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link">Support us</a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="" class="nav-link">Contact</a>
                             </li>
                         </ul>

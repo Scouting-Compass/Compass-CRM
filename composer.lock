@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a211c6b14a0427e58ad1a3b04b8fb1de",
-    "content-hash": "bf678d90a95689bc3da8698820d1d3bd",
+    "hash": "ce76926f970174febbb492f216e4ab87",
+    "content-hash": "1741dd0eec63304769a1bc84e3986591",
     "packages": [
         {
             "name": "activismebe/laravel-form-helpers",
@@ -4563,6 +4563,46 @@
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
             "time": "2017-04-07 12:08:54"
+        },
+        {
+            "name": "tightenco/tlint",
+            "version": "2.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tightenco/tlint.git",
+                "reference": "e71a01143740d86b5e2fd89eadb95d2d78ceb4c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tightenco/tlint/zipball/e71a01143740d86b5e2fd89eadb95d2d78ceb4c2",
+                "reference": "e71a01143740d86b5e2fd89eadb95d2d78ceb4c2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/view": "^5.6",
+                "nikic/php-parser": "^4.0",
+                "php": ">=7.1",
+                "symfony/console": "^4.0",
+                "symfony/process": "^4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.0"
+            },
+            "bin": [
+                "bin/tlint"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tighten\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Tighten linter for Laravel conventions",
+            "time": "2018-09-14 19:28:58"
         },
         {
             "name": "webmozart/assert",

@@ -5,7 +5,7 @@ namespace ActivismeBe\Http\Controllers\StadsMonitor\Front;
 use ActivismeBe\Models\City;
 use Illuminate\Http\Request;
 use ActivismeBe\Http\Controllers\Controller;
-use Illuminate\Support\Facades\View;
+use Illuminate\View\View;
 
 /**
  * Class IndexController
