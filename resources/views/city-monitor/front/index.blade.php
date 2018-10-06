@@ -1,11 +1,38 @@
 @extends('layouts.frontend')
 
 @section('content')
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">City monitor</h1>
+            <div class="page-subtitle">Overview</div>
+        </div>
+    </div>
+
     <div class="container py-3">
         <div class="row">
             <div class="col-md-8">
                 <div class="card card-body">
-
+                    <table class="table table-hover table-sm">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="border-top-0">Status</th>
+                                <th scope="col" class="border-top-0">Postal</th>
+                                <th scope="col" class="border-top-0">Name</th>
+                                <th scope="col" class="border-top-0">Province</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse ($cities as $city)
+                                <tr>
+                                    <td>Kernwapen vrij</td>
+                                    <td><strong>{{ $city->postal}}</strong>
+                                    <td>{{ $city->name }}</td>
+                                    <td>{{ $city->province->name }}</td>
+                                </tr>
+                            @empty
+                            @endforelse
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
