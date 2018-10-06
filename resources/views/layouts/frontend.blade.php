@@ -33,7 +33,7 @@
                     {{-- Left Side Of Navbar --}}
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
-                                <a href="{{ route('city-monitor.front.index') }}" class="nav-link">Stadsmonitor</a>
+                                <a href="{{ route('city-monitor.front.index') }}" class="nav-link">City monitor</a>
                             </li>
                             <li class="nav-item">
                                 <a href="" class="nav-link">Petition</a>

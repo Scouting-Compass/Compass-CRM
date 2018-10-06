@@ -56,6 +56,7 @@
                                     </td> {{-- /// END table functions --}}
                                 </tr>
                             @empty {{-- No cities are found in the table.  --}}
+                                {{-- TODO: Implement empty filter text --}}
                             @endforelse {{-- /// END city loop --}}
                         </tbody>
                     </table>
@@ -104,6 +105,16 @@
                         </div>
                     </div>
                 </div>
+
+                <hr class="mt-2 mb-2">
+
+                <a class="btn btn-block btn-social btn-twitter text-white">
+                    <span class="fe fe-twitter"></span> Share on Twitter
+                </a>
+
+                <a class="btn btn-block btn-social btn-facebook text-white">
+                    <span class="fe fe-facebook"></span> Share on facebook
+                </a>
             </div> {{-- /// END sidebar --}}
         </div>
     </div>

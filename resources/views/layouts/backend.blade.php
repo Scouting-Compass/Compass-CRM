@@ -37,6 +37,10 @@
                                     <a href="{{ route('users.index') }}" class="nav-link">Users</a>
                                 </li>
                             @endif
+
+                            <li class="nav-item">
+                                <a href="{{ route('city-monitor.back.index') }}" class="nav-link">City monitor</a>
+                            </li>
                         </ul>
 
                         {{-- Right Side Of Navbar --}}

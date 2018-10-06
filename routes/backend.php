@@ -26,3 +26,6 @@ Route::get('/users/lock/{user}', 'Users\LockController@create')->name('users.loc
 Route::get('/users/unlock/{user}', 'Users\LockController@destroy')->name('users.unlock');
 Route::post('/users/lock/{user}', 'Users\LockController@store')->name('users.lock.create');
 Route::get('/users/delete/undo/{trashed_user}', 'users\DashboardController@undoDeleteRoute')->name('users.delete.undo');
+
+// City Monitor routes 
+Route::get('/city-monitor', 'StadsMonitor\Back\IndexController@index')->name('city-monitor.back.index');
