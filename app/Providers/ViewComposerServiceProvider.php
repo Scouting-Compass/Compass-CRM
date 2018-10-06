@@ -3,7 +3,7 @@
 namespace ActivismeBe\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use ActivismeBe\Composers\AccountComposer;
+use ActivismeBe\Composers\{AccountComposer, CityMonitorComposer};
 
 /**
  * Class ViewComposerServiceProvider 
@@ -20,5 +20,6 @@ class ViewComposerServiceProvider extends ServiceProvider
     public function boot(): void
     {
         view()->composer('*', AccountComposer::class);
+        view()->composer('city-monitor.*', CityMonitorComposer::class);
     }
 }
