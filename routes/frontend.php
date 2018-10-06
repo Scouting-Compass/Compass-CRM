@@ -16,4 +16,5 @@ Route::get('/', function () {
 })->name('home.front');
 
 // City Monitor routes
+Route::get('/city-monitor/{city}', 'StadsMonitor\Front\IndexController@show')->name('city-monitor.front.show');
 Route::get('/city-monitor', 'StadsMonitor\Front\IndexController@index')->name('city-monitor.front.index');

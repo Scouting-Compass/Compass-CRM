@@ -41,22 +41,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($cities as $city)
+                            @forelse ($cities as $city) {{-- Loop through the cities. --}}
                                 <tr>
                                     <td><span class="badge badge-success">Accepted</span></td>
                                     <td><strong>{{ $city->postal}}</strong>
                                     <td>{{ $city->name }}</td>
                                     <td>{{ $city->province->name }}</td>
-                                    <td>
+                                    <td>{{--Table functions --}}
                                         <span class="pull-right">
-                                            <a class="text-secondary no-underline" href="">
+                                            <a class="text-secondary no-underline" href="{{ route('city-monitor.front.show', $city) }}">
                                                 <i class="fe fe-info"></i> Info
                                             </a>
                                         </span>
-                                    </td>
+                                    </td> {{-- /// END table functions --}}
                                 </tr>
-                            @empty
-                            @endforelse
+                            @empty {{-- No cities are found in the table.  --}}
+                            @endforelse {{-- /// END city loop --}}
                         </tbody>
                     </table>
 
