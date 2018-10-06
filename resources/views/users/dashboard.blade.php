@@ -80,7 +80,11 @@
                                             </a>
                                         @endif
 
-                                        <a href="{{ route('users.delete', $user) }}" class="no-underline text-danger"><i class="fe fe-user-x"></i></a>
+                                        @if ($user->trashed())
+                                            <a href="{{ route('users.delete.undo', $user) }}" class="no-underline text-success"><i class="fe fe-rotate-ccw"></i></a>
+                                        @else {{-- The user is active --}}
+                                            <a href="{{ route('users.delete', $user) }}" class="no-underline text-danger"><i class="fe fe-user-x"></i></a>
+                                        @endif
                                     </span>
                                 </td> {{-- /// END user options --}}
                             </tr>

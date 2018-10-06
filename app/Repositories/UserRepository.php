@@ -28,8 +28,9 @@ class UserRepository extends Authenticatable
      */
     public function processDeleteRequest(Request $request, User $user): void
     {
+        $undoLink = '<a href="'. route('users.delete.undo', $user) .'">undo</a>';
+
         if ($this->isValidConfirmation($request) && $user->delete()) { // Confirmation is valid && User has been deleted in the system.
-            $undoLink = '<a href="'. route('users.delete.undo', $user) .'">undo</a>';
             $this->flashWarning("The login for {$user->name} has been deleted. {$undoLink}")->important();
         }
     }
