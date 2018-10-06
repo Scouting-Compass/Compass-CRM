@@ -5,6 +5,24 @@
         <div class="page-header">
             <h1 class="page-title">City monitor</h1>
             <div class="page-subtitle">Overview</div>
+
+            <div class="page-options d-flex">
+                <div class="btn-group">
+                    <button type="button" class="btn tw-rounded btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fe mr-1 fe-filter"></i> Filter
+                    </button>
+                                
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="">Accepted cities</a>
+                        <a class="dropdown-item" href="">Pending cities</a>
+                        <a class="dropdown-item" href="">Rejected cities</a>
+                    </div>
+                </div>
+                        
+                <form class="ml-2">
+                    <input type="text" class="form-control" placeholder="Search city">
+                </form>
+            </div>
         </div>
     </div>
 
@@ -19,20 +37,30 @@
                                 <th scope="col" class="border-top-0">Postal</th>
                                 <th scope="col" class="border-top-0">Name</th>
                                 <th scope="col" class="border-top-0">Province</th>
+                                <th scope="col" class="border-top-0">&nbsp;</th> {{-- Column dedicated to functions --}}
                             </tr>
                         </thead>
                         <tbody>
                             @forelse ($cities as $city)
                                 <tr>
-                                    <td>Kernwapen vrij</td>
+                                    <td><span class="badge badge-success">Accepted</span></td>
                                     <td><strong>{{ $city->postal}}</strong>
                                     <td>{{ $city->name }}</td>
                                     <td>{{ $city->province->name }}</td>
+                                    <td>
+                                        <span class="pull-right">
+                                            <a class="text-secondary no-underline" href="">
+                                                <i class="fe fe-info"></i> Info
+                                            </a>
+                                        </span>
+                                    </td>
                                 </tr>
                             @empty
                             @endforelse
                         </tbody>
                     </table>
+
+                    {{ $cities->links() }}
                 </div>
             </div>
 
