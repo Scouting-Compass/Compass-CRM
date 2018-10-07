@@ -3,6 +3,7 @@
 namespace ActivismeBe\Composers;
 
 use Illuminate\View\View;
+use ActivismeBe\Models\City;
  
 /**
  * Class CityMonitorComposer
@@ -31,7 +32,7 @@ class CityMonitorComposer
      */
     private function acceptedCount(): string
     {
-        $total = $this->formatTotal(1333);
+        $total = $this->formatTotal();
         return str_replace(',', '.', $total);
     }
 
@@ -42,7 +43,8 @@ class CityMonitorComposer
      */
     private function rejectedCount(): string
     {
-
+        $total = $this->formatTotal(); 
+        return str_replace(',', '.', $total);
     }
 
     /**
@@ -52,15 +54,17 @@ class CityMonitorComposer
      */
     private function pendingCount(): string
     {
-
+        $total = $this->formatTotal(City::currentStatus('pending')->count());
+        return str_replace(',', '.', $total);
     }
 
     /**
      * Function for formatting the output number. 
      * 
+     * @param  int $total the total amount of cities with the given status. 
      * @return string
      */
-    private function formatTotal(int $total): string 
+    private function formatTotal(int $total = 0): string 
     {
         return number_format($total);
     }

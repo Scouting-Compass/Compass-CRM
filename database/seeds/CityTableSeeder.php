@@ -30,7 +30,7 @@ class CityTableSeeder extends Seeder
             $cityInformation = $cities->firstOrCreate([
                 // City information
                 'province_id' => $province->id, 'postal' => $city['postal'], 'name' => $city['name'], 'lat' => $city['lat'], 'lng' => $city['lng']
-            ]);
+            ])->setStatus('pending');;
 
             // Attach province to the create city 
             $cityInformation->province()->associate($province)->save();

@@ -87,7 +87,7 @@
                         </span>
 
                         <div>
-                            <h5 class="m-0">132 <small>Cities</small></h5>
+                            <h5 class="m-0">{{ $pending }} <small>Cities</small></h5>
                             <small class="text-muted">Didn't voted for the declaration</small>
                         </div>
                     </div>
@@ -100,7 +100,7 @@
                         </span>
 
                         <div>
-                            <h5 class="m-0">132 <small>Cities</small></h5>
+                            <h5 class="m-0">{{ $rejected }} <small>Cities</small></h5>
                             <small class="text-muted">Didn't accept the declaration</small>
                         </div>
                     </div>
