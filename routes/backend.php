@@ -2,20 +2,17 @@
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Web backend Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
+| Here is where you can register web backend routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Auth::routes(['verify' => 'true', 'register' => false]);
+// Dashboard route
+Route::get('/home', 'HomeController@index')->name('home');
 
 // User management routes
 Route::get('users', 'Users\DashboardController@index')->name('users.index');
@@ -28,11 +25,7 @@ Route::post('/users/store', 'Users\DashboardController@store')->name('users.stor
 Route::get('/users/lock/{user}', 'Users\LockController@create')->name('users.lock');
 Route::get('/users/unlock/{user}', 'Users\LockController@destroy')->name('users.unlock');
 Route::post('/users/lock/{user}', 'Users\LockController@store')->name('users.lock.create');
-Route::get('/users/delete/undo/{user}', 'users\DashboardController@undoDeleteRoute')->name('users.delete.undo');
+Route::get('/users/delete/undo/{trashed_user}', 'users\DashboardController@undoDeleteRoute')->name('users.delete.undo');
 
-// User settings routes 
-Route::get('user-settings/{type?}', 'Account\SettingsController@index')->name('user.settings');
-Route::patch('user-settings/info', 'Account\SettingsController@updateInformation')->name('user.settings.info'); 
-Route::patch('user-settings/security', 'Account\SettingsController@updateSecurity')->name('user.settings.security');
-
-Route::get('/home', 'HomeController@index')->name('home');
+// City Monitor routes 
+Route::get('/city-monitor', 'StadsMonitor\Back\IndexController@index')->name('city-monitor.back.index');

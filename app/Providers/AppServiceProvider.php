@@ -3,7 +3,14 @@
 namespace ActivismeBe\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use ActivismeBe\User;
+use ActivismeBe\Observers\UserObserver;
 
+/**
+ * Class AppServiceProvider
+ * 
+ * @package ActivismeBe\Providers
+ */
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -11,18 +18,8 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
-        //
-    }
-
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
+        User::observe(UserObserver::class);
     }
 }

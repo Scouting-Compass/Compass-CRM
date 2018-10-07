@@ -2,6 +2,7 @@
 
 namespace ActivismeBe\Providers;
 
+use ActivismeBe\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -21,11 +22,13 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
-        //
-
         parent::boot();
+
+        Route::bind('trashed_user', function ($id) {
+            return User::onlyTrashed()->findOrFail($id);
+        });
     }
 
     /**
@@ -33,27 +36,55 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function map()
+    public function map(): void
     {
         $this->mapApiRoutes();
-
-        $this->mapWebRoutes();
-
-        //
+        $this->mapAuthRoutes();
+        $this->mapFrontendRoutes();
+        $this->mapBackendRoutes();
     }
 
     /**
-     * Define the "web" routes for the application.
+     * Define the "web frontend" routes for the application.
      *
      * These routes all receive session state, CSRF protection, etc.
      *
      * @return void
      */
-    protected function mapWebRoutes()
+    protected function mapFrontendRoutes(): void
     {
         Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/frontend.php'));
+    }
+
+    /**
+     * Define the "web authentication" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapAuthRoutes(): void
+    {
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/auth.php'));
+    }
+
+    /**
+     * Define the "web backend" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapBackendRoutes(): void
+    {
+        Route::prefix('admin')
+             ->middleware('web')
              ->namespace($this->namespace)
-             ->group(base_path('routes/web.php'));
+             ->group(base_path('routes/backend.php'));
     }
 
     /**
@@ -63,7 +94,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function mapApiRoutes()
+    protected function mapApiRoutes(): void
     {
         Route::prefix('api')
              ->middleware('api')
