@@ -33,7 +33,7 @@ class AccountComposer
     /**
      * Method for binding to the view. 
      * 
-     * @param  View $view The builer instance for the blade view.
+     * @param  View $view The builder instance for the blade view.
      * @return void
      */
     public function compose(View $view): void 

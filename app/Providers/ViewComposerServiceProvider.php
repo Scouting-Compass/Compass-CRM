@@ -3,8 +3,7 @@
 namespace ActivismeBe\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use ActivismeBe\Composers\AccountComposer;
-use ActivismeBe\Composers\CityMonitorComposer;
+use ActivismeBe\Composers\{AccountComposer, CityMonitorComposer};
 
 /**
  * Class ViewComposerServiceProvider 
