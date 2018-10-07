@@ -4,7 +4,7 @@ namespace ActivismeBe\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-
+use Spatie\ModelStatus\HasStatuses;
 /**
  * Class City 
  * 
@@ -12,6 +12,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class City extends Model
 {
+    use HasStatuses;
+    
     /**
      * Mass-assign fields for the database table. 
      * 
