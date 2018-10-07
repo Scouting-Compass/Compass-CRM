@@ -42,8 +42,8 @@ class LogLastUserActivity
     public function handle(Request $request, Closure $next)
     {
         if ($this->auth->check()) {
-            $expiretAt = now()->addMinutes(5);
-            Cache::put('user-is-online-' . $this->auth->user()->id, true, $expiretAt);
+            $expiredAt = now()->addMinutes(5);
+            Cache::put('user-is-online-' . $this->auth->user()->id, true, $expiredAt);
         }
 
         return $next($request);
