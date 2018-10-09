@@ -13,9 +13,9 @@
                     </button>
                                 
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="">Accepted cities</a>
-                        <a class="dropdown-item" href="">Pending cities</a>
-                        <a class="dropdown-item" href="">Rejected cities</a>
+                        <a class="dropdown-item" href="{{ route('city-monitor.front.index', ['filter' => 'accepted']) }}">Accepted cities</a>
+                        <a class="dropdown-item" href="{{ route('city-monitor.front.index', ['filter' => 'pending'])  }}">Pending cities</a>
+                        <a class="dropdown-item" href="{{ route('city-monitor.front.index', ['filter' => 'rejected']) }}">Rejected cities</a>
                     </div>
                 </div>
                         

@@ -17,11 +17,19 @@ class IndexController extends Controller
     /**
      * Get the frontend index page from the city monitor.
      *
-     * @param  City $cities The resource model for the cities in the application.
+     * @param  Request $request The information instance that holds the request data.
+     * @param  City    $cities  The resource model for the cities in the application.
      * @return View
      */
-    public function index(City $cities): View
+    public function index(Request $request, City $cities): View
     {
+        $cities = $cities->query();
+
+        if (in_array($request->get('filter'), ['accepted', 'pending', 'rejected'])) {
+            // Apply criteria to the resource model query.
+            $cities->currentStatus($request->get('filter'));
+        }
+
         return view('city-monitor.front.index', ['cities' => $cities->simplePaginate()]);
     }
 

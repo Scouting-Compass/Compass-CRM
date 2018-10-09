@@ -45,7 +45,7 @@
                                 <a href="" class="nav-link">Support us</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">Contact</a>
+                                <a href="{{ route('contact') }}" class="nav-link">Contact</a>
                             </li>
                         </ul>
 
@@ -96,7 +96,7 @@
                 </div>
             </nav>
 
-            <main class="py-4">
+            <main class="{{ isset($py) ? $py : 'py-4' }}">
                 @yield('content')
             </main>
 

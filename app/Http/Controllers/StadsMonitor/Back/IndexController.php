@@ -25,11 +25,13 @@ class IndexController extends Controller
     }
 
     /**
-     * Backend dashboard for city monitor. 
-     * 
+     * Backend dashboard for city monitor.
+     *
      * @see \ActivismeBe\Policies\CityPolicy::view()
-     * 
-     * @param  City $city The resource model for the city entities.
+     *
+     * @throws \Illuminate\Auth\Access\AuthorizationException When the user can't access the city monitor.
+     *
+     * @param  City $cities The resource model for the city entities.
      * @return View
      */
     public function index(City $cities): View
