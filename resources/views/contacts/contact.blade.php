@@ -16,13 +16,13 @@
 
                     <div class="form-group row">
                         <div class="col-md-6">
-                            <input type="text" class="form-control @error('voornaam', 'is-invalid')" placeholder="Your firstname" @input('voornaam')>
-                            @error('voornaam')
+                            <input type="text" class="form-control @error('firstname', 'is-invalid')" placeholder="Your firstname" @input('firstname')>
+                            @error('firstname')
                         </div>
 
                         <div class="col-md-6">
-                            <input type="text" class="form-control @error('achternaam', 'is-invalid')" placeholder="Your lastname" @input('achternaam')>
-                            @error('achternaam')
+                            <input type="text" class="form-control @error('lastname', 'is-invalid')" placeholder="Your lastname" @input('lastname')>
+                            @error('lastname')
                         </div>
                     </div>
 
@@ -35,8 +35,8 @@
 
                     <div class="form-group row">
                         <div class="col-md-12">
-                            <textarea @input('bericht') class="form-control @error('bericht', 'is-invalid')" placeholder="Your message/question" rows="7">{{ old('bericht') }}</textarea>
-                            @error('bericht')
+                            <textarea @input('message') class="form-control @error('message', 'is-invalid')" placeholder="Your message/question" rows="7">{{ old('bericht') }}</textarea>
+                            @error('message')
                         </div>
                     </div>
 

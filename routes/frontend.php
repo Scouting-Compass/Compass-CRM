@@ -16,7 +16,7 @@ Route::get('/', function () {
 })->name('home.front');
 
 // Contact routes
-Route::view('/contact', 'contact')->name('contact');
+Route::view('/contact', 'contacts.contact')->name('contact');
 Route::post('/contact', 'Contact\IndexController@send')->name('contact.send');
 
 // City Monitor routes

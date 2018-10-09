@@ -3,8 +3,10 @@
 namespace ActivismeBe\Http\Controllers\Contact;
 
 use ActivismeBe\Http\Requests\ContactValidator;
+use ActivismeBe\Mail\SendContactMail;
 use Illuminate\Http\RedirectResponse;
 use ActivismeBe\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 
 /**
  * Class IndexController
@@ -19,14 +21,12 @@ class IndexController extends Controller
     /**
      * Method for sending the contact form the the configured mail address.
      *
-     * @todo Build up the controller logic
-     * @todo Build up the validation class
-     *
      * @param  ContactValidator $input The form request class that handles the validation logic.
      * @return RedirectResponse
      */
     public function send(ContactValidator $input): RedirectResponse
     {
-        //
+        Mail::to(config('platform.contact.email'))->queue(new SendContactMail($input->all()));
+        return redirect()->route('contact');
     }
 }

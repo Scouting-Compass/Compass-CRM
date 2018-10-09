@@ -4,6 +4,11 @@ namespace ActivismeBe\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class ContactValidator
+ *
+ * @package ActivismeBe\Http\Requests
+ */
 class ContactValidator extends FormRequest
 {
     /**
@@ -11,9 +16,12 @@ class ContactValidator extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
-        return false;
+        // This variable is true Because the validation nor the method.
+        // Doesn't need any authorization to perform in the application.
+
+        return true;
     }
 
     /**
@@ -21,10 +29,13 @@ class ContactValidator extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            //
+            'firstname' => 'required|string|max:191',
+            'lastname'  => 'required|string|max:191',
+            'email'     => 'required|string|email|max:191',
+            'message'   => 'required|string'
         ];
     }
 }
