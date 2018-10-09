@@ -69,6 +69,6 @@ trait FlashMessage
      */
     public function flashInfo(string $message, string $title = 'Info!'): FlashNotifier
     {
-        return $this->flashMessage($title, $message)->warning();
+        return $this->flashMessage($title, $message)->info();
     }
 }

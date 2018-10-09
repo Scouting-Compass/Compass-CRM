@@ -12,7 +12,8 @@
         <div class="row">
             <div class="col-md-12">
                 <form action="{{ route('contact.send') }}" method="POST" class="card card-body mb-4">
-                    @csrf {{-- Form field protection --}}
+                    @csrf                       {{-- Form field protection --}}
+                    @include ('flash::message') {{-- Flash session view partial --}}
 
                     <div class="form-group row">
                         <div class="col-md-6">

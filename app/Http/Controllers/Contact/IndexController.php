@@ -27,6 +27,12 @@ class IndexController extends Controller
     public function send(ContactValidator $input): RedirectResponse
     {
         Mail::to(config('platform.contact.email'))->queue(new SendContactMail($input->all()));
+
+        $this->flashInfo(
+            'Thanks for sending us your question. We will answer as soon as possible.',
+            '<i class="fe fe-check mr-1"></i> Thank you for contacting us.'
+        );
+
         return redirect()->route('contact');
     }
 }
