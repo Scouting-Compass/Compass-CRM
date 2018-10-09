@@ -42,6 +42,11 @@
                                     </table>
                                 </div>
                             </div>
+
+                            <div class="alert alert-info mt-3 mb-0">
+                                <strong><i class="fe fe-info"></i> Info:</strong>
+                                There are no notations for {{ $city->name }}
+                            </div>
                         </div>
 
                         <div class="col-md-3">

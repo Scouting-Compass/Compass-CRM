@@ -13970,6 +13970,14 @@ if (token) {
 //     encrypted: true
 // });
 
+/**
+ * 3th party javascript assets
+ */
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+});
+
 /***/ }),
 /* 14 */
 /***/ (function(module, exports, __webpack_require__) {
