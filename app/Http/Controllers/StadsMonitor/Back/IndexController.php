@@ -6,6 +6,7 @@ use Illuminate\View\View;
 use Illuminate\Http\Request;
 use ActivismeBe\Http\Controllers\Controller;
 use ActivismeBe\Models\City;
+use Spatie\MediaLibrary\Models\Media;
 
 /**
  * Class IndexController
@@ -22,6 +23,22 @@ class IndexController extends Controller
     public function __construct() 
     {
         $this->middleware(['verified', 'auth', 'forbid-banned-user']);
+    }
+
+    /**
+     * Show a specific chapter in the application.
+     *
+     * @todo Register route
+     *
+     * @throws \Illuminate\Auth\Access\AuthorizationException Triggered when the user is not authorized to view the chapter
+     *
+     * @param  Media $media The entity from the charter (PDF file) in the storage
+     * @return Media
+     */
+    public function show(Media $media): Media
+    {
+        $this->authorize('view-chapter', $media);
+        return $media; // Return the whole entity from the chapter
     }
 
     /**

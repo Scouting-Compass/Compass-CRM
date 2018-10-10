@@ -2,17 +2,20 @@
 
 namespace ActivismeBe\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use ActivismeBe\Repositories\CityRepository;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\ModelStatus\HasStatuses;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+
 /**
  * Class City 
  * 
  * @package ActivismeBe\Models
  */
-class City extends Model
+class City extends CityRepository implements HasMedia
 {
-    use HasStatuses;
+    use HasStatuses, HasMediaTrait;
     
     /**
      * Mass-assign fields for the database table. 

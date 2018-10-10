@@ -29,3 +29,6 @@ Route::get('/users/delete/undo/{trashed_user}', 'users\DashboardController@undoD
 
 // City Monitor routes 
 Route::get('/city-monitor', 'StadsMonitor\Back\IndexController@index')->name('city-monitor.back.index');
+
+// City monitor status routes
+Route::match(['get', 'delete'], '/city-monitor/reject/{city}', 'StadsMonitor\Back\StatusController@destroy')->name('city-monitor.delete');

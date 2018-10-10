@@ -7,7 +7,7 @@
             <div class="page-subtitle">{{ $city->postal }} {{ $city->name }}</div>
 
             <div class="page-options d-flex">
-                <a href="{{ route('city-monitor.front.index') }}" class="btn btn-primary">
+                <a href="{{ route('city-monitor.back.index') }}" class="btn btn-primary">
                     <i class="fe fe-home"></i> Overview
                 </a>
             </div>

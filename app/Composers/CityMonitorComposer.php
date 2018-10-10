@@ -32,7 +32,7 @@ class CityMonitorComposer
      */
     private function acceptedCount(): string
     {
-        $total = $this->formatTotal();
+        $total = $this->formatTotal(City::currentStatus('accepted')->count());
         return str_replace(',', '.', $total);
     }
 
@@ -43,7 +43,7 @@ class CityMonitorComposer
      */
     private function rejectedCount(): string
     {
-        $total = $this->formatTotal(); 
+        $total = $this->formatTotal(City::currentStatus('rejected')->count());
         return str_replace(',', '.', $total);
     }
 

@@ -19233,7 +19233,7 @@ table {
   background-color: #dc3545;
 }
 
-.fe-x-circle:before {
+.fe-rejected:before {
   content: "\EA01";
 }
 

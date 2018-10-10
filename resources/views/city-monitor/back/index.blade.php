@@ -30,6 +30,8 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="card card-body">
+                    @include ('flash::message') {{-- Flash session view partial --}}
+
                     <table class="table table-hover table-sm">
                         <thead>
                         <tr>
@@ -41,46 +43,46 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @forelse ($cities as $city) {{-- Loop through the cities. --}}
-                        <tr>
-                            <td>
-                                <span class="badge badge-{{ $city->status }}">
-                                    <i class="fe fe-{{ $city->status }} mr-1"></i> {{ ucfirst($city->status) }}
-                                </span>
-                            </td>
+                            @forelse ($cities as $city) {{-- Loop through the cities. --}}
+                                <tr>
+                                    <td>
+                                        <span class="badge badge-{{ $city->status }}">
+                                            <i class="fe fe-{{ $city->status }} mr-1"></i> {{ ucfirst($city->status) }}
+                                        </span>
+                                    </td>
 
-                            <td><strong>{{ $city->postal}}</strong>
-                            <td>{{ $city->name }}</td>
-                            <td>{{ $city->province->name }}</td>
-                            <td>{{--Table functions --}}
-                                <span class="pull-right">
-                                    <a class="text-secondary no-underline" href="{{ route('city-monitor.front.show', $city) }}">
-                                        <i class="fe fe-eye mr-1"></i>
-                                    </a>
+                                    <td><strong>{{ $city->postal}}</strong>
+                                    <td>{{ $city->name }}</td>
+                                    <td>{{ $city->province->name }}</td>
+                                    <td>{{--Table functions --}}
+                                        <span class="pull-right">
+                                            <a class="text-secondary no-underline" href="{{ route('city-monitor.front.show', $city) }}">
+                                                <i class="fe fe-eye mr-1"></i>
+                                            </a>
 
-                                    <a class="text-secondary no-underline" href="">
-                                        <i class="fe fe-edit mr-1"></i>
-                                    </a>
+                                            <a class="text-secondary no-underline" href="">
+                                                <i class="fe fe-edit mr-1"></i>
+                                            </a>
 
-                                    @if ($city->currentStatus(['pending', 'rejected']))
-                                        <a class="text-success no-underline mr-1" href="">
-                                            <i class="fe fe-check-circle"></i>
-                                        </a>
+                                            @if ($city->currentStatus(['pending', 'rejected']))
+                                                <a class="text-success no-underline mr-1" href="">
+                                                    <i class="fe fe-check-circle"></i>
+                                                </a>
 
-                                        <a class="text-danger no-underline" href="">
-                                            <i class="fe fe-x-circle"></i>
-                                        </a>
-                                    @else {{-- The city status is accepted --}}
-                                        <a class="text-danger no-underline" href="">
-                                            <i class="fe fe-x-circle"></i>
-                                        </a>
-                                    @endif
-                                </span>
-                            </td> {{-- /// END table functions --}}
-                        </tr>
-                        @empty {{-- No cities are found in the table.  --}}
-                        {{-- TODO: Implement empty filter text --}}
-                        @endforelse {{-- /// END city loop --}}
+                                                <a class="text-danger no-underline" href="{{ route('city-monitor.delete', $city) }}">
+                                                    <i class="fe fe-x-circle"></i>
+                                                </a>
+                                            @else {{-- The city status is accepted --}}
+                                                <a class="text-danger no-underline" href="{{ route('city-monitor.delete', $city) }}">
+                                                    <i class="fe fe-x-circle"></i>
+                                                </a>
+                                            @endif
+                                        </span>
+                                    </td> {{-- /// END table functions --}}
+                                </tr>
+                            @empty {{-- No cities are found in the table.  --}}
+                                {{-- TODO: Implement empty filter text --}}
+                            @endforelse {{-- /// END city loop --}}
                         </tbody>
                     </table>
 

@@ -64,6 +64,13 @@ return [
             'url' => env('AWS_URL'),
         ],
 
+        'media' => [
+            'driver' => 'local',
+            'root' => storage_path('app/chapters'),
+            'url' => env('APP_URL') . '/chapters',
+            'visibility' => 'private',
+        ],
+
     ],
 
 ];

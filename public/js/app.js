@@ -13909,6 +13909,15 @@ var app = new Vue({
   el: '#app'
 });
 
+/**
+ * 3th party javascript
+ */
+$(function () {
+  $('div.alert').not('.alert-important').delay(3000).fadeOut(350, function () {
+    $(this).alert('close');
+  });
+});
+
 /***/ }),
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {

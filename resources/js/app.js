@@ -20,3 +20,12 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 const app = new Vue({
     el: '#app'
 });
+
+/**
+ * 3th party javascript
+ */
+$(function () {
+    $('div.alert').not('.alert-important').delay(3000).fadeOut(350, function() {
+        $(this).alert('close');
+    });
+});
