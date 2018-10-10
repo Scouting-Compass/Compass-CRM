@@ -1,0 +1,29 @@
+/// Pending badge
+.badge-pending {
+  color: $white;
+  background-color: $secondary;
+}
+
+.fe-pending:before {
+  content: "\e936";
+}
+
+/// Accepted badge
+.badge-accepted {
+  color: $white;
+  background-color: $success;
+}
+
+.fe-accepted:before {
+  content: "\e92b";
+}
+
+/// Rejected badge
+.badge-rejected {
+  color: $white;
+  background-color: $danger;
+}
+
+.fe-x-circle:before {
+  content: "\ea01";
+}

@@ -19210,6 +19210,33 @@ table {
   * @import "utilities/skew-transforms";
   */
 
+.badge-pending {
+  color: #fff;
+  background-color: #6c757d;
+}
+
+.fe-pending:before {
+  content: "\E936";
+}
+
+.badge-accepted {
+  color: #fff;
+  background-color: #28a745;
+}
+
+.fe-accepted:before {
+  content: "\E92B";
+}
+
+.badge-rejected {
+  color: #fff;
+  background-color: #dc3545;
+}
+
+.fe-x-circle:before {
+  content: "\EA01";
+}
+
 html {
   position: relative;
   min-height: 100%;
