@@ -54,7 +54,7 @@
                             <td>{{ $city->province->name }}</td>
                             <td>{{--Table functions --}}
                                 <span class="pull-right">
-                                    <a class="text-secondary no-underline" href="">
+                                    <a class="text-secondary no-underline" href="{{ route('city-monitor.front.show', $city) }}">
                                         <i class="fe fe-eye mr-1"></i>
                                     </a>
 
