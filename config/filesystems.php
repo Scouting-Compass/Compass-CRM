@@ -66,8 +66,8 @@ return [
 
         'media' => [
             'driver' => 'local',
-            'root' => storage_path('app/chapters'),
-            'url' => env('APP_URL') . '/chapters',
+            'root' => storage_path('app/statements'),
+            'url' => env('APP_URL') . '/statements',
             'visibility' => 'private',
         ],
 

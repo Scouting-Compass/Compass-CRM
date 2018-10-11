@@ -65,7 +65,7 @@
                                             </a>
 
                                             @if ($city->currentStatus(['pending', 'rejected']))
-                                                <a class="text-success no-underline mr-1" href="">
+                                                <a class="text-success no-underline mr-1" href="{{ route('city-monitor.accept', $city) }}">
                                                     <i class="fe fe-check-circle"></i>
                                                 </a>
 

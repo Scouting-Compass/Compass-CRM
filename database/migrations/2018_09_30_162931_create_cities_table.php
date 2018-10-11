@@ -18,7 +18,11 @@ class CreateCitiesTable extends Migration
     {
         Schema::create('cities', function (Blueprint $table): void {
             $table->increments('id');
-            $table->unsignedInteger('province_id'); 
+            $table->unsignedInteger('province_id');
+
+            // Charter code status: A = Accepted, R = Rejected, P = 'Pending'
+            $table->string('charter_code')->comment('The code for the charter status that the city has.')->default('P');
+
             $table->integer('postal');
             $table->string('name', 100); 
             $table->string('lat', 50); 

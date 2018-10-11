@@ -26,35 +26,40 @@ class StatusController extends Controller
     public function __construct()
     {
         $this->middleware(['auth', 'forbid-banned-user']);
-        $this->authorizeResource(City::class);
     }
 
     /**
      * Create view when a city accept the nuclear free chapter.
      *
-     * @todo Register route
+     * @throws \Illuminate\Auth\Access\AuthorizationException When the authorization off the user fails.
      *
      * @param  City $city The resource entity from the storage.
      * @return View
      */
     public function create(City $city): View
     {
-        return view('city-monitor.back.status.accept', compact($city));
+        $this->authorize('create', $city);
+        return view('city-monitor.back.status.accept', compact('city'));
     }
 
     /**
      * Register the accept charter status for the given city.
      *
-     * @todo Register route
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      *
      * @param  CharterValidator $input The request class that handles the form validation
-     * @param  City             $city  The resource entity from the storage.
+     * @param  City $city The resource entity from the storage.
      * @return RedirectResponse
      */
     public function store(CharterValidator $input, City $city): RedirectResponse
     {
-        // TODO: Implement controller logic.
-        // TODO: Implement media collection logic.
+        $this->authorize('create', $city);
+
+        $city->uploadStatementFile();
+        $city->setStatusToAccept($input->user()->name);
+
+        $this->flashInfo($city->name . 'Has been declared as a nuclear free city.');
 
         return redirect()->route('city-monitor.front.show', $city);
     }
@@ -62,6 +67,7 @@ class StatusController extends Controller
     /**
      * Delete the nuclear chapter in the storage.
      *
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus Triggered when no valid status is found in the application
      *
      * @param  Request $request The request class that holds all the request information and params.
@@ -70,6 +76,8 @@ class StatusController extends Controller
      */
     public function destroy(Request $request, City $city)
     {
+        $this->authorize('delete', $city);
+
         if ($request->isMethod('GET')) { // Method is GET request so display a view for extra security
             return view('city-monitor.back.status.delete', compact('city'));
         }
@@ -79,7 +87,7 @@ class StatusController extends Controller
 
         if (Hash::check($request->confirmation, auth()->user()->getAuthPassword())) {
             $city->setStatus('rejected', 'Registered by ' . $request->user()->name);
-            $city->clearMediaCollection('chapters');
+            $city->clearMediaCollection("city-{$city->id}");
 
             $this->flashInfo("{$city->name} is now registered as a city that rejected the chapter");
         }

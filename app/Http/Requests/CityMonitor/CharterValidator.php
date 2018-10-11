@@ -29,6 +29,6 @@ class CharterValidator extends FormRequest
      */
     public function rules(): array
     {
-        return ['charter' => 'required|mimes:pdf'];
+        return ['statement' => 'required|mimes:pdf'];
     }
 }
