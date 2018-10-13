@@ -25,7 +25,7 @@
         <div class="row">
             <div class="col-md-8"> {{-- Content --}}
                 <div class="card mb-3">
-                    <div class="card-body mb-3">
+                    <div class="card-body pb-1 mb-3">
                         <h5 class="card-title mb-1 brand-title">Title</h5>
                         <small class="card-subtitle mb-2 text-muted">Petitie gericht aan: YYYY</small>
 
@@ -34,11 +34,13 @@
                         </p>
 
                         <hr class="mb-2 mt-2">
-                        <a href="" class="card-link">Lees meer »</a>
+                        
+                        <img src="https://via.placeholder.com/350x150" class="tw-shadow mr-1" style="border-radius: 50%; height:20px; width:20px;">
+                        <span class="align-middle text-secondary">Jhon doe</span>
 
                         <span class="text-muted pull-right card-link">
 
-                               <i class="fe fe-eye"></i> 0
+                               <a href="" class="align-middle card-link">Lees meer »</a>
                             </span>
                     </div>
                 </div>
@@ -57,6 +59,12 @@
                         </div>
                     </div>
                 </div>
+
+                <hr class="mt-2 mb-2">
+
+                <a href="" class="btn btn-success rounded btn-sm btn-lg btn-block">
+                    <i class="fe fe-edit-2 mr-1"></i> Sign petition
+                </a>
             </div> {{-- /// Sidenav --}}
         </div>
     </div>

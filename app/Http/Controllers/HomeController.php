@@ -4,6 +4,11 @@ namespace ActivismeBe\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+/**
+ * Class HomeController 
+ * 
+ * @package ActivismeBe\Http\Controllers
+ */
 class HomeController extends Controller
 {
     /**
@@ -13,7 +18,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['verified', 'auth', 'forbid-banned-user']);
+        $this->middleware(['verified', 'auth', 'forbid-banned-user'])->only(['home']);
     }
 
     /**
