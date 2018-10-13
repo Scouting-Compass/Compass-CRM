@@ -49,7 +49,7 @@ class StatusController extends Controller
      * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      *
      * @param  CharterValidator $input The request class that handles the form validation
-     * @param  City $city The resource entity from the storage.
+     * @param  City             $city  The resource entity from the storage.
      * @return RedirectResponse
      */
     public function store(CharterValidator $input, City $city): RedirectResponse

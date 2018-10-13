@@ -30,7 +30,7 @@ class IndexController extends Controller
      *
      * @todo Register route
      *
-     * @throws \Illuminate\Auth\Access\AuthorizationException Triggered when the user is not authorized to view the chapter
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      *
      * @param  Media $media The entity from the charter (PDF file) in the storage
      * @return Media
@@ -55,6 +55,7 @@ class IndexController extends Controller
     public function index(Request $request, City $cities): View
     {
         $this->authorize('view', $cities); // Check if the user has authorization to view the dashboard.
+        $cities = $cities->query();
 
         if (in_array($request->get('filter'), ['accepted', 'pending', 'rejected'])) {
             // Apply criteria to the resource model query.

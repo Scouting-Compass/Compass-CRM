@@ -64,7 +64,18 @@
                                                 <i class="fe fe-edit mr-1"></i>
                                             </a>
 
-                                            @if ($city->currentStatus(['pending', 'rejected']))
+
+                                            @if ($city->charter_code === 'R')
+                                                <a class="text-secondary no-underline" href="">
+                                                   <i class="fe fe-circle mr-1"></i>
+                                                </a>
+
+                                                <a class="text-success no-underline mr-1" href="{{ route('city-monitor.accept', $city) }}">
+                                                    <i class="fe fe-check-circle"></i>
+                                                </a>
+                                            @endif
+
+                                            @if ($city->charter_code === 'P')
                                                 <a class="text-success no-underline mr-1" href="{{ route('city-monitor.accept', $city) }}">
                                                     <i class="fe fe-check-circle"></i>
                                                 </a>
@@ -72,7 +83,14 @@
                                                 <a class="text-danger no-underline" href="{{ route('city-monitor.delete', $city) }}">
                                                     <i class="fe fe-x-circle"></i>
                                                 </a>
-                                            @else {{-- The city status is accepted --}}
+                                            @endif
+
+
+                                            @if ($city->charter_code === 'A')
+                                                <a class="text-secondary no-underline" href="">
+                                                   <i class="fe fe-circle mr-1"></i>
+                                                </a>
+
                                                 <a class="text-danger no-underline" href="{{ route('city-monitor.delete', $city) }}">
                                                     <i class="fe fe-x-circle"></i>
                                                 </a>
@@ -86,7 +104,7 @@
                         </tbody>
                     </table>
 
-                    {{ $cities->links() }}
+                    {{ $cities->links() }} {{-- Pagination view instance --}}
                 </div>
             </div>
 
