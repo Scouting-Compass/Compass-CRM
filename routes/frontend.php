@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home.front');
+Route::get('/', 'HomeController@indexFront')->name('home.front');
 
 // Contact routes
 Route::view('/contact', 'contacts.contact')->name('contact');
