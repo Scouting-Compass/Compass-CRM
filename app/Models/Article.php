@@ -2,6 +2,7 @@
 
 namespace ActivismeBe\Models;
 
+use ActivismeBe\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -19,8 +20,13 @@ class Article extends Model
      */
     protected $fillable = [];
 
+    /**
+     * Get the author data in the storage through the relation.
+     *
+     * @return BelongsTo
+     */
     public function author(): BelongsTo
     {
-        
+       return $this->belongsTo(User::class);
     }
 }

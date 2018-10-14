@@ -19,10 +19,16 @@
                     </div>
                 </div>
 
-                <form class="ml-2">
+                <form class="ml-2" action="" method="POST">
                     <input type="text" class="form-control" placeholder="Search article">
                 </form>
             </div>
+        </div>
+    </div>
+
+    <div class="container py-3">
+        <div class="card card-body">
+
         </div>
     </div>
 @endsection
