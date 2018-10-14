@@ -95,6 +95,27 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Editor Settings
+    |--------------------------------------------------------------------------
+    |
+    | This key is used to configure the editor u using during the development
+    | off this project. Below are listing all the possible editor's and IDE's
+    |
+    | - sublime
+    | - textmate
+    | - emacs
+    | - macvim
+    | - phpstorm
+    | - idea
+    | - vscode
+    | - atom
+    |
+    */
+
+    'editor' => 'phpstorm',
+
+    /*
+    |--------------------------------------------------------------------------
     | Encryption Key
     |--------------------------------------------------------------------------
     |

@@ -28,9 +28,11 @@
             </div> {{-- /// end sidenav --}}
 
             <div class="col-md-9"> {{-- Content --}}
-                <div class="card card-body">
-
-                </div>
+                <form method="POST" action="" class="card card-body">
+                    @csrf {{-- form field protection --}}
+                    
+                    <h6 class="border-bottom border-gray pb-1 mb-3">Profile information</h6>
+                </form>
             </div> {{-- /// END content --}}
         </div>
     </div>

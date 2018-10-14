@@ -54,7 +54,7 @@
                         </span>
 
                         <div>
-                            <h5 class="m-0">0 <small>Cities</small></h5>
+                            <h5 class="m-0">{{ $accepted }} <small>Cities</small></h5>
                             <small class="text-muted">Accepted the declaration</small>
                         </div>
                     </div>
