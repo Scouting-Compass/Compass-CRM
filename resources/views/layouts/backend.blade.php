@@ -44,7 +44,7 @@
 
                             @if ($authUser->hasAnyRole(['admin', 'writer'])) {{-- Authenticated user has the role admin or writer --}}
                                 <li class="nav-item">
-                                    <a href="" class="nav-link">Articles</a>
+                                    <a href="{{ route('articles.back.index') }}" class="nav-link">News</a>
                                 </li>
                             @endif
                         </ul>

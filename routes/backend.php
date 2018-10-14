@@ -30,6 +30,9 @@ Route::get('/users/delete/undo/{trashed_user}', 'users\DashboardController@undoD
 // City Monitor routes 
 Route::get('/city-monitor', 'StadsMonitor\Back\IndexController@index')->name('city-monitor.back.index');
 
+// News article routes
+Route::get('/articles', 'Articles\Back\IndexController@index')->name('articles.back.index');
+
 // City monitor status routes
 Route::get('/city-monitor/accept/{city}', 'StadsMonitor\Back\StatusController@create')->name('city-monitor.accept');
 Route::post('/city-monitor/accept/{city}', 'StadsMonitor\Back\StatusController@store')->name('city-monitor.store');
