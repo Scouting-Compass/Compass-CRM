@@ -88,6 +88,7 @@ class StatusController extends Controller
         if (Hash::check($request->confirmation, auth()->user()->getAuthPassword())) {
             $city->setStatus('rejected', 'Registered by ' . $request->user()->name);
             $city->clearMediaCollection("city-{$city->id}");
+            $city->update(['charter_code' => 'R']); // Register charter code to Rejected. 
 
             $this->flashInfo("{$city->name} is now registered as a city that rejected the chapter");
         }

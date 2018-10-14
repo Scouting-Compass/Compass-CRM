@@ -47,7 +47,7 @@ class CityPolicy
      */
     public function delete(User $user, City $city): bool
     {
-        return $user->hasRole('admin') && $city->charter_code === 'A';
+        return $user->hasRole('admin') && $city->charter_code === 'A' || $city->charter_code === 'P';
     }
 
     /**

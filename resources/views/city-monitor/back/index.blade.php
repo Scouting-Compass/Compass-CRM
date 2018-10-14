@@ -66,11 +66,11 @@
 
 
                                             @if ($city->charter_code === 'R')
-                                                <a class="text-secondary no-underline" href="">
-                                                   <i class="fe fe-circle mr-1"></i>
+                                                <a class="text-secondary no-underline mr-1" href="">
+                                                   <i class="fe fe-circle"></i>
                                                 </a>
 
-                                                <a class="text-success no-underline mr-1" href="{{ route('city-monitor.accept', $city) }}">
+                                                <a class="text-success no-underline" href="{{ route('city-monitor.accept', $city) }}">
                                                     <i class="fe fe-check-circle"></i>
                                                 </a>
                                             @endif
@@ -87,8 +87,8 @@
 
 
                                             @if ($city->charter_code === 'A')
-                                                <a class="text-secondary no-underline" href="">
-                                                   <i class="fe fe-circle mr-1"></i>
+                                                <a class="text-secondary no-underline mr-1" href="">
+                                                   <i class="fe fe-circle"></i>
                                                 </a>
 
                                                 <a class="text-danger no-underline" href="{{ route('city-monitor.delete', $city) }}">
