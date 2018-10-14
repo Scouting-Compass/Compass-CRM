@@ -20,6 +20,6 @@ class ViewComposerServiceProvider extends ServiceProvider
     public function boot(): void
     {
         view()->composer('*', AccountComposer::class);
-        view()->composer('city-monitor.*', CityMonitorComposer::class);
+        view()->composer(['city-monitor.*', 'welcome'], CityMonitorComposer::class);
     }
 }
