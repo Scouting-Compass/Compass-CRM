@@ -4,6 +4,7 @@ namespace ActivismeBe;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Laravel\Scout\Searchable;
 use Spatie\Permission\Traits\HasRoles;
 use ActivismeBe\Scopes\UserScopes;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -14,7 +15,7 @@ use ActivismeBe\Repositories\UserRepository;
 
 class User extends UserRepository implements MustVerifyEmail, BannableContract
 {
-    use Notifiable, HasRoles, UserScopes, SoftDeletes, Bannable;
+    use Notifiable, HasRoles, UserScopes, SoftDeletes, Bannable, Searchable;
 
     /**
      * The attributes that are mass assignable.

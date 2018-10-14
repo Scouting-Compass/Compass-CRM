@@ -4,6 +4,7 @@ namespace ActivismeBe\Models;
 
 use ActivismeBe\Repositories\CityRepository;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Laravel\Scout\Searchable;
 use Spatie\ModelStatus\HasStatuses;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
@@ -15,7 +16,7 @@ use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
  */
 class City extends CityRepository implements HasMedia
 {
-    use HasStatuses, HasMediaTrait;
+    use HasStatuses, HasMediaTrait, Searchable;
     
     /**
      * Mass-assign fields for the database table. 
