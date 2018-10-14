@@ -34,4 +34,31 @@ class IndexController extends Controller
     {
         return view('articles.back.index', ['articles' => $articles->simplePaginate()]);
     }
+
+    /**
+     * Create view for a new article in the storage.
+     *
+     * @todo Create the view.
+     *
+     * @return View
+     */
+    public function create(): View
+    {
+       return view('articles.back.create');
+    }
+
+    /**
+     * Search for a specific news article in the storage.
+     *
+     * @todo Implement route
+     *
+     * @param  Request $request  The information instance that holds all the data about the request.
+     * @param  Article $articles The resource entity form the storage model.
+     * @return View
+     */
+    public function search(Request $request, Article $articles): View
+    {
+        $articles = $articles->query()->search($request->term)->simplePaginate();
+        return view('articles.back.index', compact('articles'));
+    }
 }
