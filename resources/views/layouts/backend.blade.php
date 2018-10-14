@@ -41,6 +41,12 @@
                             <li class="nav-item">
                                 <a href="{{ route('city-monitor.back.index') }}" class="nav-link">City monitor</a>
                             </li>
+
+                            @if ($authUser->hasAnyRole(['admin', 'writer'])) {{-- Authenticated user has the role admin or writer --}}
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">Articles</a>
+                                </li>
+                            @endif
                         </ul>
 
                         {{-- Right Side Of Navbar --}}
