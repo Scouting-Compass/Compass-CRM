@@ -32,7 +32,30 @@
 
     <div class="container py-3">
         <div class="card card-body">
+            @include ('flash::message') {{-- Flash session view partial --}}
 
+            <div class="table-responsive mb-0">
+
+                <table class="table table-sm @if ($articles->count() > 0) table-hover @endif">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="border-top-0">Author</th>
+                            <th scope="col" class="border-top-0">Title</th>
+                            <th scope="col" class="border-top-0">Publish Date</th>
+                            <th scope="col" class="border-top-0">&nbsp;</th> {{-- Col reserved for the functions --}}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($articles as $article) {{-- There are articles found in the storage --}}
+                        @empty {{-- There are no articles found in the storage --}}
+                            <td colspan="4">
+                                <span class="tw-text-sm text-muted"><i>There are no news articles found in the application.</i></span>
+                            </td>
+                        @endforelse {{-- END article loop --}}
+                    </tbody>
+                </table>
+
+            </div>
         </div>
     </div>
 @endsection
