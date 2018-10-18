@@ -24,26 +24,29 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8"> {{-- Content --}}
-                <div class="card mb-3">
-                    <div class="card-body pb-1 mb-3">
-                        <h5 class="card-title mb-1 brand-title">Title</h5>
-                        <small class="card-subtitle mb-2 text-muted">Petitie gericht aan: YYYY</small>
+                @foreach ($articles as $article) {{-- Article loop --}}
+                    <div class="card mb-3">
+                        <div class="card-body pb-1 mb-3">
+                            <h5 class="card-title mb-1 brand-title">{{ ucfirst($article->title) }}</h5>
+                            <small class="card-subtitle mb-2 text-muted">
+                                Published {{ $article->created_at->diffForHumans() }}
+                            </small>
 
-                        <p class="card-text pt-1">
-                            Lorem Ipsum
-                        </p>
+                            <p class="card-text pt-1">
+                                {!! \Illuminate\Support\Str::words(strip_tags($article->content), 30) !!}
+                            </p>
 
-                        <hr class="mb-2 mt-2">
-                        
-                        <img src="https://via.placeholder.com/350x150" class="tw-shadow mr-1" style="border-radius: 50%; height:20px; width:20px;">
-                        <span class="align-middle text-secondary">Jhon doe</span>
+                            <hr class="mb-2 mt-2">
 
-                        <span class="text-muted pull-right card-link">
+                            <img src="https://via.placeholder.com/350x150" class="tw-shadow mr-1" style="border-radius: 50%; height:20px; width:20px;">
+                            <span class="align-middle text-secondary">{{ $article->author->name }}</span>
 
-                               <a href="" class="align-middle card-link">Lees meer »</a>
+                            <span class="text-muted pull-right card-link">
+                                <a href="" class="align-middle card-link">Read more »</a>
                             </span>
+                        </div>
                     </div>
-                </div>
+                @endforeach {{-- /// End article loop --}}
             </div> {{-- /// END content --}}
 
             <div class="col-md-4"> {{-- Sidenav --}}

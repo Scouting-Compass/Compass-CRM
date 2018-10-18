@@ -2,6 +2,7 @@
 
 namespace ActivismeBe\Http\Controllers;
 
+use ActivismeBe\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -27,9 +28,10 @@ class HomeController extends Controller
      * 
      * @return View
      */
-    public function indexFront(): View 
+    public function indexFront(Article $articles): View
     {
-        return view('welcome');
+        $articles = $articles->take(3)->latest()->get();
+        return view('welcome', compact('articles'));
     }
 
     /**

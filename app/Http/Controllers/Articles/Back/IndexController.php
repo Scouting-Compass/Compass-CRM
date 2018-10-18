@@ -2,7 +2,9 @@
 
 namespace ActivismeBe\Http\Controllers\Articles\Back;
 
+use ActivismeBe\Http\Requests\Articles\ArticleValidator;
 use ActivismeBe\Models\Article;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use ActivismeBe\Http\Controllers\Controller;
 use Illuminate\View\View;
@@ -38,13 +40,29 @@ class IndexController extends Controller
     /**
      * Create view for a new article in the storage.
      *
-     * @todo Create the view.
-     *
      * @return View
      */
     public function create(): View
     {
        return view('articles.back.create');
+    }
+
+    /**
+     * Function for storing the news articles in the storage.
+     *
+     * @todo Build up the validator ->  IN PROGRESS
+     *
+     * @param  ArticleValidator $input The form request class that holds all the request information.
+     * @return RedirectResponse
+     */
+    public function store(ArticleValidator $input): RedirectResponse
+    {
+        if ($articles = new Article($input->all())) {
+            $articles->author()->associate($input->user())->save();
+            $this->flashInfo('The news articles has been created');
+        }
+
+        return redirect()->route('articles.back.index');
     }
 
     /**

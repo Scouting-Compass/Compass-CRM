@@ -21,7 +21,7 @@ class Article extends Model
      * 
      * @return array
      */
-    protected $fillable = [];
+    protected $fillable = ['title', 'content'];
 
     /**
      * Get the author data in the storage through the relation.

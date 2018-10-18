@@ -35,6 +35,7 @@ Route::get('/city-monitor', 'StadsMonitor\Back\IndexController@index')->name('ci
 
 // News article routes
 Route::get('/articles', 'Articles\Back\IndexController@index')->name('articles.back.index');
+Route::post('/articles', 'Articles\Back\IndexController@store')->name('articles.store');
 
 // City monitor status routes
 Route::get('/city-monitor/accept/{city}', 'StadsMonitor\Back\StatusController@create')->name('city-monitor.accept');

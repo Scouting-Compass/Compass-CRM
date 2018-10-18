@@ -15,13 +15,20 @@
     </div>
 
     <div class="container py-3">
-        <form method="POST" action="" class="card card-body">
+        <form method="POST" action="{{ route('articles.store') }}" class="card card-body">
             @csrf {{-- Form field protection --}}
 
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="inputTitle">Title <span class="text-danger">*</span></label>
-                    <input type="text" placeholder="Article title" class="form-control col-md-7">
+                    <input type="text"@input('title') placeholder="Article title" class="form-control col-md-7 @error('title', 'is-invalid')">
+                    @error('title')
+                </div>
+
+                <div class="form-group col-md-12">
+                    <label for="contentArea">Article content <span class="tw-text-red">*</span></label>
+                    <textarea id="contentArea" @input('content') class="form-control @error('title', 'is-invalid') col-md-12" placeholder="Describe where u need support."></textarea>
+                    @error('content')
                 </div>
             </div>
 

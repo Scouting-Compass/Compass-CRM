@@ -47,6 +47,27 @@
                     </thead>
                     <tbody>
                         @forelse ($articles as $article) {{-- There are articles found in the storage --}}
+                            <tr>
+                                <td>{{ $article->author->name }}</td>
+                                <td>{{ $article->title }}</td>
+                                <td>{{ $article->created_at->diffForHumans() }}</td>
+
+                                <td> {{-- Options --}}
+                                    <span class="pull-right">
+                                        <a href="" class="text-muted no-underline mr-1">
+                                            <i class="fe fe-eye"></i>
+                                        </a>
+
+                                        <a href="" class="text-muted no-underline mr-1">
+                                            <i class="fe fe-edit"></i>
+                                        </a>
+
+                                        <a href="" class="text-danger no-underline">
+                                            <i class="fe fe-x-circle"></i>
+                                        </a>
+                                    </span>
+                                </td> {{-- /// END options --}}
+                            </tr>
                         @empty {{-- There are no articles found in the storage --}}
                             <td colspan="4">
                                 <span class="tw-text-sm text-muted"><i>There are no news articles found in the application.</i></span>
