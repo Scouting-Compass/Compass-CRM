@@ -62,7 +62,7 @@
                                             <i class="fe fe-edit"></i>
                                         </a>
 
-                                        <a href="" class="text-danger no-underline">
+                                        <a href="{{ route('articles.destroy', $article) }}" class="text-danger no-underline">
                                             <i class="fe fe-x-circle"></i>
                                         </a>
                                     </span>

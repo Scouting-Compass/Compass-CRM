@@ -21,6 +21,7 @@ class CreateArticlesTable extends Migration
             $table->unsignedInteger('author_id')->nullable();
             $table->string('title');
             $table->text('content');
+            $table->softDeletes();
             $table->timestamps();
 
             // Foreign keys

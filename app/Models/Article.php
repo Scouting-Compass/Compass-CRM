@@ -5,6 +5,7 @@ namespace ActivismeBe\Models;
 use ActivismeBe\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Scout\Searchable;
 
 /**
@@ -14,7 +15,7 @@ use Laravel\Scout\Searchable;
  */
 class Article extends Model
 {
-    use Searchable;
+    use Searchable, SoftDeletes;
 
     /**
      * Mass-assign fields for the database storage table. 

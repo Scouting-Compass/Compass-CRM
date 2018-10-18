@@ -38,7 +38,6 @@
 
                             <hr class="mb-2 mt-2">
 
-                            <img src="https://via.placeholder.com/350x150" class="tw-shadow mr-1" style="border-radius: 50%; height:20px; width:20px;">
                             <span class="align-middle text-secondary">{{ $article->author->name }}</span>
 
                             <span class="text-muted pull-right card-link">
