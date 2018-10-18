@@ -58,7 +58,7 @@
                                             <i class="fe fe-eye"></i>
                                         </a>
 
-                                        <a href="" class="text-muted no-underline mr-1">
+                                        <a href="{{ route('articles.edit', $article) }}" class="text-muted no-underline mr-1">
                                             <i class="fe fe-edit"></i>
                                         </a>
 

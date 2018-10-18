@@ -51,9 +51,18 @@ class IndexController extends Controller
     }
 
     /**
-     * Function for storing the news articles in the storage.
+     * Edit view for an news article in the storage.
      *
-     * @todo Build up the validator ->  IN PROGRESS
+     * @param  Article $article The resource entity form the article.
+     * @return View
+     */
+    public function edit(Article $article): View
+    {
+        return view('articles.back.edit', compact('article'));
+    }
+
+    /**
+     * Function for storing the news articles in the storage.
      *
      * @param  ArticleValidator $input The form request class that holds all the request information.
      * @return RedirectResponse
@@ -70,8 +79,6 @@ class IndexController extends Controller
 
     /**
      * Soft delete a news article in the storage.
-     *
-     * @todo Implement softdelete on storage model
      *
      * @throws \Exception throwed when no resource entity is found.
      *

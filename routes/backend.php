@@ -36,6 +36,7 @@ Route::get('/city-monitor', 'StadsMonitor\Back\IndexController@index')->name('ci
 // News article routes
 Route::get('/articles', 'Articles\Back\IndexController@index')->name('articles.back.index');
 Route::post('/articles', 'Articles\Back\IndexController@store')->name('articles.store');
+Route::get('/article/edit/{article}', 'Articles\Back\IndexController@edit')->name('articles.edit');
 Route::get('/articles/delete/{article}', 'Articles\Back\IndexController@destroy')->name('articles.destroy');
 Route::get('/article/undo/{article}', 'Articles\Back\IndexController@undoDeleteRoute')->name('articles.delete.undo');
 
