@@ -42,7 +42,7 @@
                                 <a href="" class="nav-link">News</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">Support us</a>
+                                <a href="{{ route('support.index') }}" class="nav-link">Support us</a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('contact') }}" class="nav-link">Contact</a>
