@@ -27,6 +27,10 @@ Route::get('/users/unlock/{user}', 'Users\LockController@destroy')->name('users.
 Route::post('/users/lock/{user}', 'Users\LockController@store')->name('users.lock.create');
 Route::get('/users/delete/undo/{trashed_user}', 'users\DashboardController@undoDeleteRoute')->name('users.delete.undo');
 
+// Notification routes
+Route::get('/notifications/mark-as-read', 'NotificationsController@markAsRead')->name('notifications.markAll');
+Route::get('/notifications/{type?}', 'NotificationsController@index')->name('notifications.index');
+
 // Article routes
 Route::get('/article/create', 'Articles\Back\IndexController@create')->name('articles.back.create');
 
