@@ -28,8 +28,10 @@ class LockController extends Controller
     }
 
     /**
-     * View for deactivating users in the application. 
-     * 
+     * View for deactivating users in the application.
+     *
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     *
      * @param  User $user The resource entity from the given user.
      * @return View
      */
@@ -56,7 +58,7 @@ class LockController extends Controller
     }
 
     /**
-     * Delete the user deactivation in the application. 
+     * Delete the user deactivation in the application.
      * 
      * @param  User $user The user entity from the storage.
      * @return RedirectResponse
