@@ -13,6 +13,8 @@ let tailwindcss = require('tailwindcss');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css')
-   .copy('node_modules/trumbowyg/dist/ui/icons.svg', 'public/icons')
-   .options({ processCssUrls: false, postCss: [ tailwindcss('./tailwind-config.js')] });
+    .js('resources/js/login.js', 'public/js')
+    .sass('resources/sass/app.scss', 'public/css')
+    .sass('resources/sass/login.scss', 'public/css')
+    .copy('node_modules/trumbowyg/dist/ui/icons.svg', 'public/icons')
+    .options({ processCssUrls: false, postCss: [ tailwindcss('./tailwind-config.js')] });
