@@ -32,7 +32,7 @@
                     <p class="pt-2">
                         @if ($type === 'all')
                             Looks like that we currently have no notifications for u!
-                        @else
+                        @else {{-- Unread notifications --}}
                             Looks like you've read all your notifications.
                         @endif
                     </p>
