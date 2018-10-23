@@ -23,7 +23,7 @@
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="inputTitle">Title <span class="text-danger">*</span></label>
-                    <input type="text"@input('title') placeholder="Article title" class="form-control col-md-7 @error('title', 'is-invalid')">
+                    <input type="text" @input('title') placeholder="Article title" class="form-control col-md-7 @error('title', 'is-invalid')">
                     @error('title')
                 </div>
 

@@ -27,6 +27,11 @@ Route::get('/users/unlock/{user}', 'Users\LockController@destroy')->name('users.
 Route::post('/users/lock/{user}', 'Users\LockController@store')->name('users.lock.create');
 Route::get('/users/delete/undo/{trashed_user}', 'users\DashboardController@undoDeleteRoute')->name('users.delete.undo');
 
+// Page fragment routes
+Route::get('/fragments', 'PagesController@index')->name('fragments.index');
+Route::get('/fragments/edit/{page}', 'PagesController@edit')->name('fragments.edit');
+Route::patch('/fragment/edit/{page}', 'PagesController@update')->name('fragments.update');
+
 // Notification routes
 Route::get('/notifications/mark-as-read', 'NotificationsController@markAsRead')->name('notifications.markAll');
 Route::get('/notifications/{type?}', 'NotificationsController@index')->name('notifications.index');

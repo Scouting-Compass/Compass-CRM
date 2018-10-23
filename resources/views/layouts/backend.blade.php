@@ -36,6 +36,10 @@
                                 <li class="nav-item">
                                     <a href="{{ route('users.index') }}" class="nav-link">Users</a>
                                 </li>
+
+                                <li class="nav-item">
+                                    <a href="{{ route('fragments.index') }}" class="nav-link">Fragments</a>
+                                </li>
                             @endif
 
                             <li class="nav-item">
