@@ -18,14 +18,14 @@ class CreatePagesTable extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id')->nullable();
+            $table->unsignedInteger('last_editor_id')->nullable();
             $table->string('slug');
             $table->string('title');
             $table->text('content');
             $table->timestamps();
 
             // Foreign keys
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('SET NULL');
+            $table->foreign('last_editor_id')->references('id')->on('users')->onDelete('SET NULL');
         });
     }
 

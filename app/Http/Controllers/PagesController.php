@@ -58,7 +58,7 @@ class PagesController extends Controller
     public function update(PageValidator $input, Page $page): RedirectResponse
     {
         if ($page->update($input->all())) { // Page fragment has been updated in the storage.
-            $page->lastEditor()->associate($input->user())->all();
+            $page->lastEditor()->associate($input->user())->save();
             $this->flashInfo("The page fragment ({$page->title}) has been updated");
         }
 

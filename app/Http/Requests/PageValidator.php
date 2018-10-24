@@ -29,7 +29,8 @@ class PageValidator extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required|string|max:191',
+            'content' => 'required|string'
         ];
     }
 }
