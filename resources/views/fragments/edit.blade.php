@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="page-header">
-            <h1 class="page-title">Edit page fragment</h1>
+            <h1 class="page-title">Edit policy fragment</h1>
             <div class="page-subtitle">{{ $page->title }}</div>
 
             <div class="page-options d-flex">

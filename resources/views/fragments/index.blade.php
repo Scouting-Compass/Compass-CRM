@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="page-header">
-            <h1 class="page-title">Page fragments</h1>
+            <h1 class="page-title">Policy fragments</h1>
             <div class="page-subtitle">Management panel</div>
 
             <div class="page-options d-flex">

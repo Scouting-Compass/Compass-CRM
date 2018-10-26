@@ -40,7 +40,7 @@
 
                             <span class="align-middle text-secondary">{{ $article->author->name }}</span>
 
-                            <span class="text-muted pull-right card-link">
+                            <span class="text-muted float-right card-link">
                                 <a href="" class="align-middle card-link">Read more »</a>
                             </span>
                         </div>

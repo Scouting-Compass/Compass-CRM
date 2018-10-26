@@ -38,7 +38,7 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="{{ route('fragments.index') }}" class="nav-link">Fragments</a>
+                                    <a href="{{ route('fragments.index') }}" class="nav-link">Policies</a>
                                 </li>
                             @endif
 
