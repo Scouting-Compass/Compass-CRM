@@ -61,7 +61,7 @@
                             @if (auth()->user()->hasRole('admin'))
                                 <hr class="mt-2 mb-2">
 
-                                <a href="" class="btn btn-outline-secondary rounded btn-sm btn-lg btn-block">
+                                <a href="{{ route('notation.create') }}" class="btn btn-outline-secondary rounded btn-sm btn-lg btn-block">
                                     <i class="fe fe-plus-circle mr-1"></i> Add notation
                                 </a>
                             @endif
