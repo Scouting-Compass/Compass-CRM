@@ -43,7 +43,7 @@
                                 </div>
                             </div>
 
-                            <div class="alert alert-info mt-3 mb-0">
+                            <div class="alert alert-info alert-important mt-3 mb-0">
                                 <strong><i class="fe fe-info"></i> Info:</strong>
                                 There are no notations for {{ $city->name }}
                             </div>
@@ -57,6 +57,14 @@
                             <a class="btn btn-block btn-social btn-facebook text-white">
                                 <span class="fe fe-facebook"></span> Share on Facebook
                             </a>
+
+                            @if (auth()->user()->hasRole('admin'))
+                                <hr class="mt-2 mb-2">
+
+                                <a href="" class="btn btn-outline-secondary rounded btn-sm btn-lg btn-block">
+                                    <i class="fe fe-plus-circle mr-1"></i> Add notation
+                                </a>
+                            @endif
                         </div> 
                     </div>
                 </div>
