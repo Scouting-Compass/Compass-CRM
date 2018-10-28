@@ -15,6 +15,7 @@ class CreateNotationsTable extends Migration
     {
         Schema::create('notations', function (Blueprint $table): void {
             $table->increments('id');
+            $table->unsignedInteger('author_id')->nullable();
             $table->unsignedInteger('city_id');
             $table->string('title');
             $table->text('content');
@@ -22,6 +23,7 @@ class CreateNotationsTable extends Migration
 
             // Foreign Keys 
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
+            $table->foreign('author_id')->references('id')->on('users')->onDelete('set null');
         });
     }
 

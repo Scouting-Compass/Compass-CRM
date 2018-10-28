@@ -4,37 +4,18 @@ namespace ActivismeBe\Observers;
 
 use ActivismeBe\Notifications\Users\LoginCreated;
 use ActivismeBe\User;
-use Illuminate\Contracts\Auth\Guard;
 
 /**
  * Class UserObserver
  * 
  * @package ActivismeBe\Observers
  */
-class UserObserver
+class UserObserver extends ObserverBase
 {
-    /**
-     * The Guard implementation.
-     *
-     * @var Guard $auth
-     */
-    protected $auth;
-
-    /**
-     * LogLastUserActivity constructor
-     *
-     * @param  Guard $auth The authentication guard implementation.
-     * @return void
-     */
-    public function __construct(Guard $auth)
-    {
-        $this->auth = $auth;
-    }
-
     /**
      * Handle the user "created" event.
      * 
-     * @param  User  $user The entity from the create user.
+     * @param  User  $user The entity from the created user.
      * @return void
      */
     public function created(User $user): void

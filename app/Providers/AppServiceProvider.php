@@ -4,7 +4,8 @@ namespace ActivismeBe\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use ActivismeBe\User;
-use ActivismeBe\Observers\UserObserver;
+use ActivismeBe\Observers\{UserObserver, NotationObserver};
+use ActivismeBe\Models\Notation;
 
 /**
  * Class AppServiceProvider
@@ -21,5 +22,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         User::observe(UserObserver::class);
+        Notation::observe(NotationObserver::class);
     }
 }
