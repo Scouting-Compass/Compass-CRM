@@ -30,7 +30,7 @@ Route::get('/users/delete/undo/{trashed_user}', 'users\DashboardController@undoD
 // City notation routes
 Route::get('/notation/create/{city}', 'StadsMonitor\Back\NotationController@create')->name('notation.create');
 Route::post('/notation/create/{city}', 'StadsMonitor\Back\NotationController@store')->name('notation.store');
-
+Route::get('/notation/edit/{notation}', 'StadsMonitor\Back\NotationController@edit')->name('notation.edit');
 // Page fragment routes
 Route::get('/fragments', 'PagesController@index')->name('fragments.index');
 Route::get('/fragments/edit/{page}', 'PagesController@edit')->name('fragments.edit');

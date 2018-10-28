@@ -25,7 +25,7 @@
                         @if (auth()->check() && $authUser->hasRole('admin'))
                             <td>
                                 <span class="float-right">
-                                    <a href="" class="text-secondary no-underline mr-1">
+                                    <a href="{{ route('notation.edit', $notation) }}" class="text-secondary no-underline mr-1">
                                         <i class="fe fe-edit"></i>
                                     </a>
 

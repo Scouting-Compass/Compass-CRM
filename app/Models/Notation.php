@@ -29,4 +29,14 @@ class Notation extends Model
     {
        return $this->belongsTo(User::class)->withDefault(['name' => 'unknown']);
     }
+
+    /**
+     * Data relation for the information from the city that is attached to the notation. 
+     * 
+     * @return BelongsTo 
+     */
+    public function city(): BelongsTo
+    {
+        return $this->belongsTo(City::class);
+    }
 }

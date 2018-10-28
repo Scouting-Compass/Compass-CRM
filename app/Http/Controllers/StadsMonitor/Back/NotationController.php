@@ -2,12 +2,13 @@
 
 namespace ActivismeBe\Http\Controllers\StadsMonitor\Back;
 
-use ActivismeBe\Models\City;
+use ActivismeBe\Models\{City, Notation};
 use Illuminate\Http\{RedirectResponse, Request};
 use ActivismeBe\Http\Controllers\Controller;
 use Illuminate\View\View;
 use ActivismeBe\Http\Requests\CityMonitor\NotationValidator;
-use ActivismeBe\Models\Notation;
+
+
 /**
  * Class NotationController
  *
@@ -45,12 +46,25 @@ class NotationController extends Controller
      */
     public function store(NotationValidator $input, City $city): RedirectResponse 
     {
-        $notation = new Notation($input->all()); // TODO Implement Observer for the creator attachment
+        $notation = new Notation($input->all()); // Author attachment happen on created event observer. 
         
         if ($city->notations()->save($notation)) {
             $this->flashInfo("The notation for {$city->name} has been added.");
         }
 
         return redirect()->route('city-monitor.front.show', $city);
+    }
+
+    /**
+     * Edit view for an notation in the application. 
+     *
+     * @todo Build up the view.
+     * 
+     * @param  Notation The resource entity from the notation that comes from the storage. 
+     * @return View 
+     */
+    public function edit(Notation $notation): View 
+    {
+        return view('notation.edit', compact('notation'));
     }
 }
