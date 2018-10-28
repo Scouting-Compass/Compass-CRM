@@ -9,7 +9,7 @@
             <hr class="my-3">
 
             <p class="lead">
-                <a href="" class="btn btn-outline-primary">
+                <a href="{{ route('city-monitor.front.index') }}" class="btn btn-outline-primary">
                     <i class="fe fe-align-justify mr-1"></i> Monitor
                 </a>
 
