@@ -24,7 +24,7 @@
                         <div class="col-md-9">
                             <div class="card">
                                 <div class="card-header pl-3 pr-3 p-2">
-                                    <code>1000</code> - Brussel
+                                    <code>{{ $city->postal }}</code> - {{ $city->name }}
                                     <strong><span class="pull-right">(Information)</span></strong>
                                 </div>
 
@@ -45,10 +45,15 @@
                                 </div>
                             </div>
 
-                            <div class="alert alert-info alert-important mt-3 mb-0">
-                                <strong><i class="fe fe-info"></i> Info:</strong>
-                                There are no notations for {{ $city->name }}
-                            </div>
+                            @if ($city->notations->count() > 0) {{-- City has notations --}}
+                                {{-- Notation listing view partial --}}
+                                @include ('city-monitor.front.notations', ['notations' => $city->notations()->simplePaginate()])
+                            @else {{-- City has no notations --}}
+                                <div class="alert alert-info alert-important mt-3 mb-0">
+                                    <strong><i class="fe fe-info"></i> Info:</strong>
+                                    There are no notations for {{ $city->name }}
+                                </div>
+                            @endif
                         </div>
 
                         <div class="col-md-3">
