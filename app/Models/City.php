@@ -3,7 +3,7 @@
 namespace ActivismeBe\Models;
 
 use ActivismeBe\Repositories\CityRepository;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\{BelongsTo, HasMany};
 use Laravel\Scout\Searchable;
 use Spatie\ModelStatus\HasStatuses;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
@@ -33,6 +33,16 @@ class City extends CityRepository implements HasMedia
     public function province(): BelongsTo
     {
         return $this->belongsTo(Province::class)->withDefault(['name' => 'unknown']);
+    }
+
+    /**
+     * Data relation for setting and gettin the notation for a city. 
+     * 
+     * @return HasMany
+     */
+    public function notations(): HasMany 
+    {
+        return $this->hasMany(Notation::class);
     }
 
     /**
