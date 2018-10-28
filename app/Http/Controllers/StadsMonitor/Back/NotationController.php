@@ -2,6 +2,7 @@
 
 namespace ActivismeBe\Http\Controllers\StadsMonitor\Back;
 
+use ActivismeBe\Models\City;
 use Illuminate\Http\Request;
 use ActivismeBe\Http\Controllers\Controller;
 use Illuminate\View\View;
@@ -26,10 +27,11 @@ class NotationController extends Controller
     /**
      * The create view for a new notation in the application.
      *
+     * @param  City $city The resource entity for the city that belongs to the notation.
      * @return View
      */
-    public function create(): View
+    public function create(City $city): View
     {
-        return view('notation.create');
+        return view('notation.create', compact('city'));
     }
 }

@@ -28,7 +28,7 @@ Route::post('/users/lock/{user}', 'Users\LockController@store')->name('users.loc
 Route::get('/users/delete/undo/{trashed_user}', 'users\DashboardController@undoDeleteRoute')->name('users.delete.undo');
 
 // City notation routes
-Route::get('/notation/create', 'StadsMonitor\Back\NotationController@create')->name('notation.create');
+Route::get('/notation/create/{city}', 'StadsMonitor\Back\NotationController@create')->name('notation.create');
 
 // Page fragment routes
 Route::get('/fragments', 'PagesController@index')->name('fragments.index');

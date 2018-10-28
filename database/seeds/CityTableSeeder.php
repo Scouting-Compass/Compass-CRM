@@ -24,7 +24,7 @@ class CityTableSeeder extends Seeder
 
         foreach ($stmt->process($csv) as $city) {
             // Create a new province if not exists
-            $province = $provinces->firstOrCreate(['name' => $city['province']]); 
+            $province = $provinces->firstOrCreate(['name' => $city['province']]);
 
             // Create a new city in the database if not exists
             $cityInformation = $cities->firstOrCreate([

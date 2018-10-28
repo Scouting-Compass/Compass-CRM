@@ -58,10 +58,10 @@
                                 <span class="fe fe-facebook"></span> Share on Facebook
                             </a>
 
-                            @if (auth()->user()->hasRole('admin'))
+                            @if (auth()->check() && $authUser->hasRole('admin'))
                                 <hr class="mt-2 mb-2">
 
-                                <a href="{{ route('notation.create') }}" class="btn btn-outline-secondary rounded btn-sm btn-lg btn-block">
+                                <a href="{{ route('notation.create', $city) }}" class="btn btn-outline-secondary rounded btn-sm btn-lg btn-block">
                                     <i class="fe fe-plus-circle mr-1"></i> Add notation
                                 </a>
                             @endif
